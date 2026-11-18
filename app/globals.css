@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-navy: #0A1931;
+  --brand-dark: #050D1A;
+  --brand-blue: #0090FF;
+  --brand-orange: #FF6B00;
+}
+
+body {
+  color: #F1F5F9;
+  background-color: #050D1A;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #071326;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E437C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0090FF;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(14, 34, 68, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(30, 67, 124, 0.5);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(14, 34, 68, 0.75) 0%, rgba(7, 19, 38, 0.85) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 144, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 107, 0, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(255, 107, 0, 0.25), 0 0 20px rgba(0, 144, 255, 0.15);
+}
+
+/* Glowing text and borders */
+.glow-orange {
+  text-shadow: 0 0 20px rgba(255, 107, 0, 0.6);
+}
+
+.glow-blue {
+  text-shadow: 0 0 20px rgba(0, 144, 255, 0.6);
+}
+
+.circuit-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(30, 67, 124, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 67, 124, 0.15) 1px, transparent 1px);
+}
+
+/* Circuit trace pulse line */
+@keyframes circuitPulse {
+  0% {
+    stroke-dashoffset: 600;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.circuit-animated-track {
+  stroke-dasharray: 20, 10;
+  animation: circuitPulse 20s linear infinite;
+}
