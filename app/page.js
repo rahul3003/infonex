@@ -8,7 +8,6 @@ import ParallaxMarquee from '../components/ParallaxMarquee'
 import InteractiveCircuitPlayground from '../components/InteractiveCircuitPlayground'
 import PillarsSection from '../components/PillarsSection'
 import KitsShowcase from '../components/KitsShowcase'
-import LabCalculator from '../components/LabCalculator'
 import CurriculumRoadmap from '../components/CurriculumRoadmap'
 import BangaloreHubSection from '../components/BangaloreHubSection'
 import ComparisonSection from '../components/ComparisonSection'
@@ -22,11 +21,6 @@ export default function Home() {
 
   const handleOpenDemoModal = () => {
     setModalInitialData(null)
-    setIsDemoModalOpen(true)
-  }
-
-  const handleOpenDemoModalWithData = (data) => {
-    setModalInitialData(data)
     setIsDemoModalOpen(true)
   }
 
@@ -53,9 +47,6 @@ export default function Home() {
 
         {/* Hardware, Rovers & Kits Showcase with Tab Filters & 3D Tilt */}
         <KitsShowcase onOpenDemoModal={handleOpenDemoModal} />
-
-        {/* Interactive School Lab Setup Estimator & Cost Calculator */}
-        <LabCalculator onOpenDemoModalWithData={handleOpenDemoModalWithData} />
 
         {/* Grade 1 to 12 NEP 2020 Curriculum Roadmap: Seed to Bloom */}
         <CurriculumRoadmap />

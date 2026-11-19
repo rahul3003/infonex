@@ -48,7 +48,7 @@ export default function Footer({ onOpenDemoModal }) {
               <li><a href="#pillars" className="hover:text-brand-orange transition-colors">Robotics Engineering</a></li>
               <li><a href="#pillars" className="hover:text-brand-orange transition-colors">AI & Computer Vision</a></li>
               <li><a href="#pillars" className="hover:text-brand-orange transition-colors">Turnkey STEM Labs</a></li>
-              <li><a href="#estimator" className="hover:text-brand-orange transition-colors">Atal Tinkering Labs</a></li>
+              <li><a href="#labs" className="hover:text-brand-orange transition-colors">Atal Tinkering Labs</a></li>
               <li><a href="#kits" className="hover:text-brand-orange transition-colors">IoT & Smart Automation</a></li>
               <li><a href="#curriculum" className="hover:text-brand-orange transition-colors">NEP 2020 Curriculum</a></li>
             </ul>

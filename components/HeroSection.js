@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
-import { ArrowRight, CheckCircle2, RefreshCw, ChevronRight } from 'lucide-react'
+import { ArrowRight, CheckCircle2, RefreshCw } from 'lucide-react'
 import LogoAnimated from './LogoAnimated'
 import ParallaxTiltCard from './ParallaxTiltCard'
 
@@ -110,16 +110,6 @@ export default function HeroSection({ onOpenDemoModal }) {
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1.5 transition-transform relative z-10" />
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </motion.button>
-
-              <motion.a
-                whileHover={{ scale: 1.02, y: -1 }}
-                whileTap={{ scale: 0.98 }}
-                href="#estimator"
-                className="px-5 py-3 sm:px-6 sm:py-4 rounded-xl bg-brand-navy-surface hover:bg-brand-navy-light text-slate-200 hover:text-white font-semibold text-xs sm:text-sm md:text-base border border-brand-navy-border hover:border-brand-blue/50 transition-all flex items-center justify-center gap-2"
-              >
-                <span>Calculate Lab Cost</span>
-                <ChevronRight className="w-4 h-4 text-brand-blue" />
-              </motion.a>
             </div>
 
             {/* Key trust bullets */}

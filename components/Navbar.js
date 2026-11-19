@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sparkles, MapPin, Phone, ArrowRight, Bot, Cpu, BookOpen, Calculator, Layers } from 'lucide-react'
+import { Menu, X, Sparkles, MapPin, Phone, ArrowRight, Bot, Cpu, BookOpen, Layers } from 'lucide-react'
 import LogoAnimated from './LogoAnimated'
 
 export default function Navbar({ onOpenDemoModal }) {
@@ -22,7 +22,6 @@ export default function Navbar({ onOpenDemoModal }) {
     { name: 'Turnkey Labs', href: '#labs', icon: Bot },
     { name: 'Kits & Hardware', href: '#kits', icon: Layers },
     { name: 'Curriculum K-12', href: '#curriculum', icon: BookOpen },
-    { name: 'Lab Estimator', href: '#estimator', icon: Calculator },
   ]
 
   return (
