@@ -50,8 +50,8 @@ export default function PillarsSection({ onOpenDemoModal }) {
     {
       id: 'stem-labs',
       tag: 'Pillar 03',
-      title: 'Turnkey STEM Labs',
-      tagline: 'Transforming Classrooms into Innovation Hubs',
+      title: 'Composite Skill Lab (CSL)',
+      tagline: 'Transforming Classrooms into Modern Skill Hubs',
       theme: 'cyan',
       icon: Microscope,
       borderColor: 'border-cyan-400/40',

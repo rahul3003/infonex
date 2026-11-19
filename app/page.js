@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import HeroSection from '../components/HeroSection'
 import ParallaxBackground from '../components/ParallaxBackground'
 import ParallaxMarquee from '../components/ParallaxMarquee'
+import FiveLearningZones from '../components/FiveLearningZones'
 import InteractiveCircuitPlayground from '../components/InteractiveCircuitPlayground'
 import PillarsSection from '../components/PillarsSection'
 import KitsShowcase from '../components/KitsShowcase'
@@ -39,7 +40,10 @@ export default function Home() {
         {/* Dynamic Horizontal Parallax Marquee Ticker */}
         <ParallaxMarquee />
 
-        {/* The 3 Signature Pillars: Robotics, AI & Coding, STEM Labs with 3D Tilt Cards */}
+        {/* 03 - Five Learning Zones: From Curiosity to Creation (The 5 Spark Learning Zones) */}
+        <FiveLearningZones onOpenDemoModal={handleOpenDemoModal} />
+
+        {/* The 3 Signature Pillars: Robotics, AI & Coding, CSL Composite Skill Lab */}
         <PillarsSection onOpenDemoModal={handleOpenDemoModal} />
 
         {/* Interactive Anatomy of Infonex Circuit Traces */}

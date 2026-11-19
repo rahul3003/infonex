@@ -1,8 +1,12 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sparkles, MapPin, Phone, ArrowRight, Bot, Cpu, BookOpen, Layers } from 'lucide-react'
+import { 
+  Menu, X, Sparkles, MapPin, Phone, ArrowRight, Home, 
+  BookOpen, Info, Image as ImageIcon, Mail, ShoppingBag 
+} from 'lucide-react'
 import LogoAnimated from './LogoAnimated'
 
 export default function Navbar({ onOpenDemoModal }) {
@@ -18,16 +22,19 @@ export default function Navbar({ onOpenDemoModal }) {
   }, [])
 
   const navLinks = [
-    { name: 'Core Pillars', href: '#pillars', icon: Cpu },
-    { name: 'Turnkey Labs', href: '#labs', icon: Bot },
-    { name: 'Kits & Hardware', href: '#kits', icon: Layers },
-    { name: 'Curriculum K-12', href: '#curriculum', icon: BookOpen },
+    { name: 'Home', href: '/', icon: Home },
+    { name: 'Courses', href: '/courses', icon: BookOpen },
+    { name: 'About', href: '/about', icon: Info },
+    { name: 'Gallery', href: '/gallery', icon: ImageIcon },
+    { name: 'Contact Us', href: '/contact', icon: Mail },
   ]
 
   return (
     <>
-      {/* Top announcement bar */}
-      <div className="bg-brand-navy-darkest/95 border-b border-brand-navy-border/50 py-2 px-4 text-xs relative z-50">
+      {/* Fixed Sticky Appbar on Scroll */}
+      <div className="fixed top-0 inset-x-0 z-50 w-full shadow-2xl">
+        {/* Top announcement bar */}
+        <div className="bg-brand-navy-darkest/98 border-b border-brand-navy-border/50 py-2 px-4 text-xs backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex items-center justify-between text-slate-300 gap-4">
           <div className="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-orange/20 text-brand-orange font-semibold text-[10px] uppercase tracking-wider shrink-0">
@@ -57,47 +64,48 @@ export default function Navbar({ onOpenDemoModal }) {
         </div>
       </div>
 
-      {/* Main sticky navigation */}
+      {/* Main navigation header */}
       <header 
-        className={`sticky top-0 z-40 transition-all duration-300 ${
+        className={`transition-all duration-300 ${
           scrolled 
-            ? 'bg-brand-navy-darkest/95 backdrop-blur-xl border-b border-brand-navy-border shadow-2xl py-2.5' 
-            : 'bg-brand-navy-darkest/75 backdrop-blur-md border-b border-brand-navy-border/40 py-3.5'
+            ? 'bg-brand-navy-darkest/98 backdrop-blur-2xl border-b border-brand-navy-border shadow-2xl py-2.5' 
+            : 'bg-brand-navy-darkest/90 backdrop-blur-xl border-b border-brand-navy-border/50 py-3.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4">
             
             {/* Brand Logo with formation animation */}
-            <a href="#" className="flex items-center group shrink-0">
+            <Link href="/" className="flex items-center group shrink-0">
               <LogoAnimated size="default" showText={true} showTagline={true} />
-            </a>
+            </Link>
 
             {/* Desktop Navigation links pill */}
             <nav className="hidden lg:flex items-center gap-1 bg-brand-navy-surface/80 border border-brand-navy-border/80 rounded-full px-3 py-1.5 backdrop-blur-xl shadow-inner">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className="px-3.5 py-1.5 text-xs xl:text-sm font-medium text-slate-300 hover:text-white rounded-full transition-all duration-200 hover:bg-brand-blue/15 hover:text-white whitespace-nowrap"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </nav>
 
             {/* Right Side: Primary CTA */}
             <div className="hidden sm:flex items-center gap-3 shrink-0">
-              <motion.button
+              <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={onOpenDemoModal}
-                className="relative group overflow-hidden px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-orange to-brand-orange-hover text-white text-xs md:text-sm font-bold shadow-lg shadow-brand-orange/30 flex items-center gap-2 border border-brand-orange/40"
+                href="/store"
+                className="relative group overflow-hidden px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-orange to-brand-orange-hover text-white text-xs md:text-sm font-bold shadow-lg shadow-brand-orange/30 flex items-center gap-2 border border-brand-orange/40 cursor-pointer"
               >
-                <span className="relative z-10 whitespace-nowrap">Book Demo Lab</span>
+                <ShoppingBag className="w-4 h-4 relative z-10" />
+                <span className="relative z-10 whitespace-nowrap">Store</span>
                 <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform shrink-0" />
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              </motion.button>
+              </motion.a>
             </div>
 
             {/* Mobile Hamburger toggle */}
@@ -121,13 +129,13 @@ export default function Navbar({ onOpenDemoModal }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[108px] z-50 p-4 bg-brand-navy-darkest/98 backdrop-blur-2xl border-b border-brand-navy-border lg:hidden shadow-2xl"
+            className="fixed inset-x-0 top-[88px] sm:top-[98px] z-50 p-4 bg-brand-navy-darkest/98 backdrop-blur-2xl border-b border-brand-navy-border lg:hidden shadow-2xl"
           >
             <div className="flex flex-col gap-1.5">
               {navLinks.map((link) => {
                 const Icon = link.icon
                 return (
-                  <a
+                  <Link
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
@@ -137,26 +145,28 @@ export default function Navbar({ onOpenDemoModal }) {
                       <Icon className="w-4 h-4" />
                     </div>
                     <span>{link.name}</span>
-                  </a>
+                  </Link>
                 )
               })}
 
               <div className="pt-3 border-t border-brand-navy-border/60 flex flex-col gap-2 mt-2">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false)
-                    onOpenDemoModal()
-                  }}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-orange to-brand-orange-hover text-white font-bold text-sm shadow-lg shadow-brand-orange/30 flex items-center justify-center gap-2"
+                <Link
+                  href="/store"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-orange to-brand-orange-hover text-white font-bold text-sm shadow-lg shadow-brand-orange/30 flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <Sparkles className="w-4 h-4" />
-                  <span>Book Free School Demo Lab</span>
-                </button>
+                  <ShoppingBag className="w-4 h-4" />
+                  <span>Visit Store</span>
+                </Link>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </div>
+
+    {/* Spacer so page content begins neatly below fixed appbar */}
+    <div className="h-[88px] sm:h-[94px] w-full shrink-0 pointer-events-none" aria-hidden="true" />
+  </>
   )
 }

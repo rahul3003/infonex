@@ -2,27 +2,32 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Sparkles, ArrowRight, ArrowLeft, Play, Pause, CheckCircle, Layers } from 'lucide-react'
+import { 
+  Sparkles, ArrowRight, ArrowLeft, Play, Pause, 
+  Layers, Cpu, Wifi, Eye, Rocket, RefreshCw, Zap, Box 
+} from 'lucide-react'
 
 export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
   const [currentState, setCurrentState] = useState(0) // 0, 1, 2, 3
+  const [hoveredCell, setHoveredCell] = useState(null)
+  const [flippedCells, setFlippedCells] = useState({})
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const timerRef = useRef(null)
 
-  // Auto-cycle through the 4 states every 5 seconds
+  // Auto-cycle through the 4 states every 5.5 seconds (only when not interacting)
   useEffect(() => {
-    if (!isAutoPlaying) return
+    if (!isAutoPlaying || hoveredCell !== null) return
 
     timerRef.current = setInterval(() => {
       setCurrentState(prev => (prev >= 3 ? 0 : prev + 1))
-    }, 5000)
+    }, 5500)
 
     return () => clearInterval(timerRef.current)
-  }, [isAutoPlaying, currentState])
+  }, [isAutoPlaying, currentState, hoveredCell])
 
   const handleSelectState = (index) => {
     setCurrentState(index)
-    setIsAutoPlaying(false) // pause on interaction
+    setIsAutoPlaying(false) // pause on manual interaction
   }
 
   const handleNext = () => {
@@ -35,7 +40,19 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
     setIsAutoPlaying(false)
   }
 
-  // Content for the 4 distinct states
+  const handleCellClick = (index) => {
+    setFlippedCells(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }))
+    handleSelectState(index)
+  }
+
+  const handleResetFlips = () => {
+    setFlippedCells({})
+  }
+
+  // The 4 Interactive Brand Architecture Pillars
   const states = [
     {
       prefix: "We engineer",
@@ -43,10 +60,21 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
       keywordColor: "text-indigo-400",
       glowColor: "rgba(29, 78, 137, 0.8)",
       themeColor: "#1D4E89",
+      accentColor: "#38BDF8",
       badge: "State 01 • Silicon Architecture",
       description: "Physical computing, transistor switching, breadboard prototyping, and embedded microcontroller architecture from the silicon up.",
       voltage: "3.3V SILICON LOGIC",
-      capabilities: ["Discrete Electronics & Breadboards", "ESP32 & ARM Microcontroller Registers", "Motor Kinematics & PWM Speed Control"]
+      capabilities: ["Discrete Electronics & Breadboards", "ESP32 & ARM Microcontroller Registers", "Motor Kinematics & PWM Speed Control"],
+      cellTitle: "Silicon & Hardware Logic",
+      cellSubtitle: "3.3V Logic • Transistors & Registers",
+      icon: Cpu,
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+      specs: [
+        { label: "Core Processing", val: "ARM Cortex-M4 @ 240MHz" },
+        { label: "Logic Bus", val: "3.3V CMOS Registers" },
+        { label: "I/O Multiplex", val: "36 Programmable GPIOs" },
+        { label: "Prototyping", val: "Solderless Breadboards" }
+      ]
     },
     {
       prefix: "We connect",
@@ -54,10 +82,21 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
       keywordColor: "text-brand-blue",
       glowColor: "rgba(0, 144, 255, 0.8)",
       themeColor: "#0090FF",
+      accentColor: "#60A5FA",
       badge: "State 02 • Cloud Telemetry",
       description: "Wireless sensor arrays, MQTT web dashboards, automated telemetry, and real-time cloud data streams connecting classroom robots to smart cities.",
       voltage: "5.0V TELEMETRY BUS",
-      capabilities: ["Wi-Fi & Bluetooth Low Energy Mesh", "Real-Time Cloud IoT Dashboards", "Agricultural & Climate Telemetry"]
+      capabilities: ["Wi-Fi & Bluetooth Low Energy Mesh", "Real-Time Cloud IoT Dashboards", "Agricultural & Climate Telemetry"],
+      cellTitle: "Networked IoT & Cloud",
+      cellSubtitle: "5.0V Bus • Wireless Mesh & Dashboards",
+      icon: Wifi,
+      image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=1200&q=80",
+      specs: [
+        { label: "Telemetry Protocol", val: "MQTT over TLS v1.3" },
+        { label: "Mesh Frequency", val: "2.4GHz Wi-Fi + BLE 5.2" },
+        { label: "Cloud Sampling", val: "< 15ms Roundtrip" },
+        { label: "Sensor Array", val: "Temp, Humidity, Soil, Lux" }
+      ]
     },
     {
       prefix: "We train",
@@ -65,10 +104,21 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
       keywordColor: "text-brand-orange",
       glowColor: "rgba(255, 107, 0, 0.8)",
       themeColor: "#FF6B00",
+      accentColor: "#F59E0B",
       badge: "State 03 • Machine Vision",
       description: "OpenCV computer vision, neural network classification, real-time face tracking, and edge machine learning deployed directly on low-power classroom rovers.",
       voltage: "12.0V NEURAL ENGINE",
-      capabilities: ["OpenCV Face & Gesture Tracking", "Edge TensorFlow Lite Inference", "Autonomous Maze & Pathfinding Models"]
+      capabilities: ["OpenCV Face & Gesture Tracking", "Edge TensorFlow Lite Inference", "Autonomous Maze & Pathfinding Models"],
+      cellTitle: "Autonomous AI & Vision",
+      cellSubtitle: "12.0V Engine • Edge Neural Models",
+      icon: Eye,
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80",
+      specs: [
+        { label: "Vision Pipeline", val: "OpenCV + MobileNet v3" },
+        { label: "Edge Inference", val: "60 FPS Neural Tensor" },
+        { label: "Autonomous Drive", val: "PID Closed-Loop Rover" },
+        { label: "Model Accuracy", val: "98.4% Classification" }
+      ]
     },
     {
       prefix: "We sprout",
@@ -76,14 +126,28 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
       keywordColor: "text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-400 to-yellow-200",
       glowColor: "rgba(255, 161, 20, 0.9)",
       themeColor: "#FFA114",
+      accentColor: "#34D399",
       badge: "State 04 • The Living Sprout",
       description: "Planting lifelong passion in every classroom. Empowering curious students to become inventive roboticists, patent creators, and tomorrow's engineering leaders.",
       voltage: "PULSE 100% COMPLETE",
-      capabilities: ["Patent Incubation & Capstone Projects", "National Robotics Olympiad Mentorship", "NEP 2020 Aligned Innovation Hubs"]
+      capabilities: ["Patent Incubation & Capstone Projects", "National Robotics Olympiad Mentorship", "NEP 2020 Aligned Innovation Hubs"],
+      cellTitle: "Living Tech Seeds",
+      cellSubtitle: "Patents • Young Inventors & Olympiads",
+      icon: Rocket,
+      image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+      specs: [
+        { label: "School Deployments", val: "120+ Partner Institutions" },
+        { label: "Active Innovators", val: "50,000+ Young Creators" },
+        { label: "Curriculum Standard", val: "NEP 2020 & ATL Ready" },
+        { label: "Capstone Goal", val: "Patents & Science Fairs" }
+      ]
     }
   ]
 
   const active = states[currentState]
+  // On cursor point (hover) it must show that cell's image in the card background
+  const displayedIndex = hoveredCell !== null ? hoveredCell : currentState
+  const displayedState = states[displayedIndex]
 
   // Smooth blur and slide animation variants
   const textVariants = {
@@ -256,200 +320,277 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
           </div>
 
           {/* ========================================================
-              RIGHT COLUMN: ABSTRACT VISUAL (MORPHING CIRCUIT & SPROUT)
+              RIGHT COLUMN: INTERACTIVE 3D CUBIC MATRIX & CARD SHOWCASE
+              Instead of the static logo SVG, displays cubic flip cells.
+              On cursor point (hover), card background displays that cell's image!
+              On click, cell performs a 3D cubic flip revealing specs & telemetry!
               ======================================================== */}
           <div className="lg:col-span-6 flex items-center justify-center relative">
             
             {/* Morphing ambient color backdrop */}
             <div
-              className="absolute w-72 sm:w-96 h-72 sm:h-96 rounded-full blur-[100px] pointer-events-none transition-colors duration-700"
+              className="absolute w-72 sm:w-[500px] h-72 sm:h-[500px] rounded-full blur-[100px] pointer-events-none transition-colors duration-700"
               style={{
-                backgroundColor: `${active.themeColor}25`
+                backgroundColor: `${displayedState.themeColor}30`
               }}
             />
 
-            {/* Visual Glass Stage */}
-            <div className="relative p-5 sm:p-8 rounded-3xl bg-brand-navy-darkest/95 border border-brand-navy-border/90 shadow-2xl backdrop-blur-2xl flex flex-col items-center justify-center overflow-hidden w-full max-w-md mx-auto">
+            {/* Visual Glass Stage Card */}
+            <div className="relative p-4 sm:p-6 rounded-3xl bg-brand-navy-darkest/95 border border-brand-navy-border/90 shadow-2xl backdrop-blur-2xl flex flex-col justify-between overflow-hidden w-full max-w-lg lg:max-w-xl mx-auto min-h-[460px] sm:min-h-[500px]">
               
-              {/* Circuit Grid Canvas Background */}
-              <div className="absolute inset-0 opacity-15 circuit-grid pointer-events-none" />
-
-              {/* The Central Abstract Infonex Circuit SVG */}
-              <svg
-                width="220"
-                height="260"
-                viewBox="0 0 200 250"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="drop-shadow-2xl overflow-visible max-h-[200px] sm:max-h-[250px]"
-              >
-                <defs>
-                  <linearGradient id="splitLeafGrad" x1="175" y1="48" x2="210" y2="10" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#FF6B00" />
-                    <stop offset="60%" stopColor="#FFA043" />
-                    <stop offset="100%" stopColor="#FFC837" />
-                  </linearGradient>
-
-                  <filter id="splitCircuitGlow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="3.5" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                </defs>
-
-                {/* Base Ghost Tracks (Inactive circuit rails) */}
-                <path
-                  d="M 40 207 L 40 76 L 135 180 L 135 53"
-                  stroke="#1D4E89"
-                  strokeWidth="7"
-                  strokeOpacity="0.18"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-                <path
-                  d="M 60 207 L 60 76 L 155 180 L 155 47"
-                  stroke="#0090FF"
-                  strokeWidth="7"
-                  strokeOpacity="0.18"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-                <path
-                  d="M 80 207 L 80 76 L 175 180 L 175 52"
-                  stroke="#FF6B00"
-                  strokeWidth="7.5"
-                  strokeOpacity="0.18"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-
-                {/* Bottom Solder Pads */}
-                <circle
-                  cx="40"
-                  cy="215"
-                  r="8"
-                  stroke="#1D4E89"
-                  strokeWidth="4"
-                  fill={currentState >= 0 ? "#1D4E89" : "#050D1A"}
-                  className="transition-colors duration-400"
-                />
-                <circle
-                  cx="60"
-                  cy="215"
-                  r="8"
-                  stroke="#0090FF"
-                  strokeWidth="4"
-                  fill={currentState >= 1 ? "#0090FF" : "#050D1A"}
-                  className="transition-colors duration-400"
-                />
-                <circle
-                  cx="80"
-                  cy="215"
-                  r="8"
-                  stroke="#FF6B00"
-                  strokeWidth="4"
-                  fill={currentState >= 2 ? "#FF6B00" : "#050D1A"}
-                  className="transition-colors duration-400"
-                />
-
-                {/* Top Solder Pads */}
-                <circle
-                  cx="135"
-                  cy="46"
-                  r="7"
-                  stroke="#1D4E89"
-                  strokeWidth="3.5"
-                  fill={currentState >= 0 ? "#1D4E89" : "#050D1A"}
-                  className="transition-colors duration-400"
-                />
-                <circle
-                  cx="155"
-                  cy="40"
-                  r="7"
-                  stroke="#0090FF"
-                  strokeWidth="3.5"
-                  fill={currentState >= 1 ? "#0090FF" : "#050D1A"}
-                  className="transition-colors duration-400"
-                />
-
-                {/* Trace 1 Path */}
-                <motion.path
-                  d="M 40 207 L 40 76 L 135 180 L 135 53"
-                  stroke="#1D4E89"
-                  strokeWidth="7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: currentState >= 0 ? 1 : 0 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                />
-
-                {/* Trace 2 Path */}
-                <motion.path
-                  d="M 60 207 L 60 76 L 155 180 L 155 47"
-                  stroke="#0090FF"
-                  strokeWidth="7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                  filter="url(#splitCircuitGlow)"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: currentState >= 1 ? 1 : 0 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                />
-
-                {/* Trace 3 Path */}
-                <motion.path
-                  d="M 80 207 L 80 76 L 175 180 L 175 52"
-                  stroke="#FF6B00"
-                  strokeWidth="7.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                  filter="url(#splitCircuitGlow)"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: currentState >= 2 ? 1 : 0 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                />
-
-                {/* Sprouting Tech Seed Leaf (State 4 Culmination) */}
-                <motion.g
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{
-                    scale: currentState >= 3 ? 1 : 0,
-                    rotate: currentState >= 3 ? 0 : -35,
-                    opacity: currentState >= 3 ? 1 : 0,
-                  }}
-                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                  style={{ transformOrigin: "175px 52px" }}
-                >
-                  <path
-                    d="M 175 52 C 170 30 185 10 216 12 C 218 36 200 55 175 52 Z"
-                    fill="url(#splitLeafGrad)"
-                    stroke="#FF8A00"
-                    strokeWidth="2"
-                    className="drop-shadow-lg"
+              {/* ============================================================
+                  DYNAMIC CARD BACKGROUND IMAGE LAYER:
+                  "in card in background for on cursor point it must show that cell image"
+                  Smoothly crossfades to that hovered/pointed cell's high-res image!
+                  ============================================================ */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl z-0">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={displayedIndex}
+                    initial={{ opacity: 0, scale: 1.08 }}
+                    animate={{ opacity: 0.38, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.04 }}
+                    transition={{ duration: 0.45, ease: "easeOut" }}
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url(${displayedState.image})`
+                    }}
                   />
-                  <path
-                    d="M 175 52 Q 192 34 216 12"
-                    stroke="#FFFFFF"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    fill="none"
-                  />
-                </motion.g>
-              </svg>
+                </AnimatePresence>
 
-              {/* Status Label on Visual Box */}
-              <div className="mt-4 pt-3 border-t border-brand-navy-border/60 w-full flex items-center justify-between text-[11px] font-mono text-slate-400">
-                <span>STATE VISUALIZATION</span>
-                <span className="font-bold" style={{ color: active.themeColor }}>
-                  {active.keyword.toUpperCase()}
-                </span>
+                {/* Dark technical vignette masks to keep cells and typography 100% crisp */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050D1A] via-[#050D1A]/80 to-[#050D1A]/60" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_15%,#050D1A_90%)]" />
+                <div className="absolute inset-0 opacity-15 circuit-grid" />
               </div>
+
+              {/* Card Header Toolbar */}
+              <div className="relative z-10 flex items-center justify-between pb-3 mb-3 border-b border-brand-navy-border/70">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+                  <span className="text-[11px] font-mono text-slate-400 ml-1">
+                    brand-matrix.sys
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span 
+                    className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider border"
+                    style={{
+                      backgroundColor: `${displayedState.themeColor}25`,
+                      borderColor: `${displayedState.themeColor}60`,
+                      color: displayedState.themeColor === "#FFA114" ? "#FFB84D" : displayedState.themeColor
+                    }}
+                  >
+                    {hoveredCell !== null ? `HOVERED: STATE 0${displayedIndex + 1}` : `ACTIVE: STATE 0${displayedIndex + 1}`}
+                  </span>
+
+                  {Object.keys(flippedCells).length > 0 && (
+                    <button
+                      onClick={handleResetFlips}
+                      className="flex items-center gap-1 px-2 py-0.5 rounded bg-brand-navy-surface hover:bg-brand-navy-light text-slate-300 text-[10px] font-mono border border-brand-navy-border transition-colors cursor-pointer"
+                      title="Reset flipped cells"
+                    >
+                      <RefreshCw className="w-2.5 h-2.5 text-brand-orange" />
+                      <span>Reset</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* ============================================================
+                  2x2 CUBIC CELLS GRID:
+                  "each sell must have cubeic click lip on in card"
+                  3D perspective container with flippable cubic cards
+                  ============================================================ */}
+              <div 
+                className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-3 my-auto py-1"
+                style={{ perspective: '1400px' }}
+              >
+                {states.map((st, idx) => {
+                  const isActive = currentState === idx
+                  const isHovered = hoveredCell === idx
+                  const isFlipped = !!flippedCells[idx]
+                  const Icon = st.icon
+
+                  return (
+                    <div
+                      key={idx}
+                      onMouseEnter={() => setHoveredCell(idx)}
+                      onMouseLeave={() => setHoveredCell(null)}
+                      onClick={() => handleCellClick(idx)}
+                      className="relative h-[160px] sm:h-[175px] rounded-2xl cursor-pointer select-none group"
+                      style={{ transformStyle: 'preserve-3d' }}
+                    >
+                      {/* 3D Flippable Cubic Container */}
+                      <motion.div
+                        animate={{ 
+                          rotateY: isFlipped ? 180 : 0,
+                          scale: isHovered ? 1.025 : (isActive ? 1.015 : 1),
+                        }}
+                        transition={{ 
+                          duration: 0.6, 
+                          ease: [0.16, 1, 0.3, 1] 
+                        }}
+                        className="w-full h-full relative"
+                        style={{ transformStyle: 'preserve-3d' }}
+                      >
+                        {/* ----------------------------------------------------
+                            FRONT FACE: The Cell Preview with Image & Glow
+                            ---------------------------------------------------- */}
+                        <div
+                          className={`absolute inset-0 rounded-2xl p-3 flex flex-col justify-between overflow-hidden border backdrop-blur-md transition-all duration-300 ${
+                            isActive 
+                              ? 'shadow-2xl' 
+                              : 'hover:border-slate-500'
+                          }`}
+                          style={{
+                            backfaceVisibility: 'hidden',
+                            WebkitBackfaceVisibility: 'hidden',
+                            borderColor: isActive ? st.themeColor : (isHovered ? `${st.themeColor}90` : 'rgba(30, 41, 59, 0.8)'),
+                            boxShadow: isActive ? `0 0 25px ${st.themeColor}45` : undefined,
+                            backgroundColor: '#071326E6'
+                          }}
+                        >
+                          {/* Subtle photographic backdrop thumbnail */}
+                          <img
+                            src={st.image}
+                            alt={st.cellTitle}
+                            className="absolute inset-0 w-full h-full object-cover object-center opacity-30 mix-blend-screen scale-105 group-hover:scale-115 transition-transform duration-500"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/75 to-transparent pointer-events-none" />
+
+                          {/* Technical blueprint corner crosshairs */}
+                          <div className="absolute top-1.5 left-1.5 w-2 h-2 border-t border-l border-white/20 pointer-events-none" />
+                          <div className="absolute top-1.5 right-1.5 w-2 h-2 border-t border-r border-white/20 pointer-events-none" />
+
+                          {/* Top Row: State Pill + Icon */}
+                          <div className="relative z-10 flex items-center justify-between">
+                            <span 
+                              className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider border flex items-center gap-1"
+                              style={{
+                                backgroundColor: `${st.themeColor}30`,
+                                borderColor: `${st.themeColor}70`,
+                                color: st.themeColor === "#FFA114" ? "#FFB84D" : st.themeColor
+                              }}
+                            >
+                              {isActive && (
+                                <span className="w-1.5 h-1.5 rounded-full animate-ping" style={{ backgroundColor: st.themeColor }} />
+                              )}
+                              <span>0{idx + 1} • {st.keyword}</span>
+                            </span>
+
+                            <div 
+                              className="p-1.5 rounded-lg border flex items-center justify-center transition-transform group-hover:rotate-6"
+                              style={{
+                                backgroundColor: `${st.themeColor}25`,
+                                borderColor: `${st.themeColor}60`,
+                                color: st.themeColor === "#FFA114" ? "#FFB84D" : st.themeColor
+                              }}
+                            >
+                              <Icon className="w-3.5 h-3.5" />
+                            </div>
+                          </div>
+
+                          {/* Middle: Title & Subtitle */}
+                          <div className="relative z-10">
+                            <h4 className="text-xs sm:text-sm font-bold text-white font-display tracking-tight leading-snug truncate">
+                              {st.cellTitle}
+                            </h4>
+                            <p className="text-[10px] text-slate-300 font-mono mt-0.5 truncate">
+                              {st.cellSubtitle}
+                            </p>
+                          </div>
+
+                          {/* Bottom: Voltage & Cubic Click Flip Callout */}
+                          <div className="relative z-10 pt-1.5 border-t border-white/10 flex items-center justify-between text-[10px] font-mono">
+                            <span className="text-slate-400 truncate">
+                              {st.voltage}
+                            </span>
+                            <span 
+                              className="flex items-center gap-1 text-[10px] font-semibold tracking-wider uppercase group-hover:underline"
+                              style={{ color: st.accentColor }}
+                            >
+                              <Box className="w-2.5 h-2.5 animate-spin" style={{ animationDuration: '6s' }} />
+                              <span>Flip</span>
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* ----------------------------------------------------
+                            BACK FACE (180deg): Technical Blueprint & Telemetry Specs
+                            ---------------------------------------------------- */}
+                        <div
+                          className="absolute inset-0 rounded-2xl p-3 flex flex-col justify-between overflow-hidden border shadow-2xl backdrop-blur-xl"
+                          style={{
+                            transform: 'rotateY(180deg)',
+                            backfaceVisibility: 'hidden',
+                            WebkitBackfaceVisibility: 'hidden',
+                            borderColor: st.themeColor,
+                            boxShadow: `0 0 30px ${st.themeColor}50`,
+                            backgroundColor: '#050D1AFA'
+                          }}
+                        >
+                          {/* Top: Header with live indicator */}
+                          <div className="flex items-center justify-between pb-1.5 border-b border-white/10">
+                            <div className="flex items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                              <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider">
+                                TELEMETRY SPECS
+                              </span>
+                            </div>
+                            <span className="text-[10px] font-mono text-slate-400">
+                              STATE 0{idx + 1}
+                            </span>
+                          </div>
+
+                          {/* Middle: Structured Technical Specifications */}
+                          <div className="space-y-1.5 my-auto">
+                            {st.specs.map((sp, sIdx) => (
+                              <div key={sIdx} className="flex items-center justify-between text-[10px] font-mono">
+                                <span className="text-slate-400 truncate max-w-[100px]">{sp.label}:</span>
+                                <span className="text-slate-200 font-medium truncate ml-1">{sp.val}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Bottom: Return Flip Hint */}
+                          <div className="pt-1.5 border-t border-white/10 flex items-center justify-between text-[10px] font-mono">
+                            <span className="text-slate-400">
+                              3D CUBIC FLIP
+                            </span>
+                            <span 
+                              className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider"
+                              style={{ color: st.themeColor === "#FFA114" ? "#FFB84D" : st.themeColor }}
+                            >
+                              <RefreshCw className="w-2.5 h-2.5" />
+                              <span>Flip Back</span>
+                            </span>
+                          </div>
+                        </div>
+
+                      </motion.div>
+                    </div>
+                  )
+                })}
+              </div>
+
+              {/* Card Footer Status Bar */}
+              <div className="relative z-10 pt-3 border-t border-brand-navy-border/70 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono">
+                <div className="flex items-center gap-2 text-slate-300">
+                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: displayedState.themeColor }} />
+                  <span className="font-bold text-white">{displayedState.keyword}:</span>
+                  <span className="text-slate-400 truncate max-w-[200px] sm:max-w-xs">{displayedState.voltage}</span>
+                </div>
+                <div className="text-slate-400 flex items-center gap-1.5">
+                  <Sparkles className="w-3 h-3 text-brand-orange shrink-0" />
+                  <span>Hover to view image • Click cell to flip</span>
+                </div>
+              </div>
+
             </div>
 
           </div>

@@ -29,7 +29,8 @@ export default function BangaloreHubSection({ onOpenDemoModal }) {
   ]
 
   return (
-    <section className="py-14 sm:py-20 md:py-28 relative bg-brand-navy-darker border-t border-brand-navy-border/60 overflow-hidden">
+    <section id="about" className="py-14 sm:py-20 md:py-28 relative bg-brand-navy-darker border-t border-brand-navy-border/60 overflow-hidden">
+      <div id="hub" className="absolute -top-10" />
       {/* Background graphic elements */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-64 sm:w-96 h-64 sm:h-96 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none" />
 

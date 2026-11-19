@@ -1,14 +1,75 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import React, { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion'
 import { ArrowRight, CheckCircle2, RefreshCw } from 'lucide-react'
 import LogoAnimated from './LogoAnimated'
 import ParallaxTiltCard from './ParallaxTiltCard'
+import HeroFlippingGrid from './HeroFlippingGrid'
+
+// The Five Spark Learning Zones (Yantra, Shakti, Tarka, Chetana, Srishti)
+const learningZones = [
+  {
+    id: 1,
+    name: 'Yantra',
+    meaning: 'machine',
+    desc: 'Hands-on building and mechanisms',
+    color: '#E5A00D', // Ochre / Yellow
+    glow: 'rgba(229, 160, 13, 0.45)',
+    border: 'rgba(229, 160, 13, 0.4)'
+  },
+  {
+    id: 2,
+    name: 'Shakti',
+    meaning: 'power',
+    desc: 'Circuits and working models',
+    color: '#FF6B00', // Vibrant Orange
+    glow: 'rgba(255, 107, 0, 0.45)',
+    border: 'rgba(255, 107, 0, 0.4)'
+  },
+  {
+    id: 3,
+    name: 'Tarka',
+    meaning: 'logic',
+    desc: 'From visual to written programming',
+    color: '#E11D48', // Berry Magenta / Crimson
+    glow: 'rgba(225, 29, 72, 0.45)',
+    border: 'rgba(225, 29, 72, 0.4)'
+  },
+  {
+    id: 4,
+    name: 'Chetana',
+    meaning: 'awareness',
+    desc: 'Sensing and acting together',
+    color: '#0090FF', // Cyan / Electric Blue
+    glow: 'rgba(0, 144, 255, 0.45)',
+    border: 'rgba(0, 144, 255, 0.4)'
+  },
+  {
+    id: 5,
+    name: 'Srishti',
+    meaning: 'creation',
+    desc: 'Integrated projects and systems',
+    color: '#10B981', // Emerald Green
+    glow: 'rgba(16, 185, 129, 0.45)',
+    border: 'rgba(16, 185, 129, 0.4)'
+  }
+]
 
 export default function HeroSection({ onOpenDemoModal }) {
   const [formationKey, setFormationKey] = useState(0)
+  const [activeZoneIndex, setActiveZoneIndex] = useState(0)
   const heroRef = useRef(null)
+
+  // Auto-cycle through the 5 zones every 3 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveZoneIndex(prev => (prev + 1) % learningZones.length)
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const currentZone = learningZones[activeZoneIndex]
 
   // Scroll parallax driven values
   const { scrollYProgress } = useScroll({
@@ -24,14 +85,17 @@ export default function HeroSection({ onOpenDemoModal }) {
   return (
     <section 
       ref={heroRef}
-      className="relative pt-4 pb-14 sm:py-16 md:py-24 overflow-hidden circuit-grid z-10"
+      className="relative min-h-[calc(100vh-80px)] flex items-center py-6 sm:py-8 lg:py-0 overflow-hidden z-10"
     >
+      {/* Interactive 3D Flipping AI, ML & Robotics Grid Background */}
+      <HeroFlippingGrid />
+
       {/* Background ambient lighting blobs */}
       <div className="absolute top-10 left-1/4 w-60 sm:w-96 h-60 sm:h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-40 right-10 w-72 sm:w-[500px] h-72 sm:h-[500px] bg-brand-orange/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full max-w-5xl h-36 bg-gradient-to-r from-brand-blue/10 via-brand-orange/15 to-transparent blur-2xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-4 lg:py-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           
           {/* Left Column: Core Messaging with Parallax Shift */}
@@ -71,6 +135,66 @@ export default function HeroSection({ onOpenDemoModal }) {
               We partner with forward-thinking schools and colleges to establish turnkey innovation labs, deliver experiential grade-wise curriculum, and empower students to build real-world autonomous robots, IoT devices, and AI models.
             </p>
 
+            {/* Simple Animated 5 Wordings Only */}
+            <div className="flex flex-wrap items-center gap-3 mb-6 sm:mb-8">
+              <div 
+                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border shadow-lg transition-colors duration-500 backdrop-blur-md"
+                style={{
+                  borderColor: currentZone.color,
+                  backgroundColor: `${currentZone.color}18`,
+                  boxShadow: `0 0 25px ${currentZone.glow}`
+                }}
+              >
+                <span 
+                  className="w-2 h-2 rounded-full animate-ping shrink-0" 
+                  style={{ backgroundColor: currentZone.color }} 
+                />
+                <div className="h-6 overflow-hidden flex items-center min-w-[170px] sm:min-w-[190px]">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentZone.name}
+                      initial={{ y: 16, opacity: 0, filter: 'blur(4px)' }}
+                      animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                      exit={{ y: -16, opacity: 0, filter: 'blur(4px)' }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      className="inline-flex items-baseline gap-2 font-display"
+                    >
+                      <span className="font-extrabold text-sm sm:text-base tracking-wide" style={{ color: currentZone.color }}>
+                        {currentZone.id}. {currentZone.name}
+                      </span>
+                      <span className="text-slate-300 italic text-xs sm:text-sm font-medium">
+                        ({currentZone.meaning})
+                      </span>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </div>
+
+              {/* 5 Minimalist Step Indicators */}
+              <div className="flex items-center gap-1.5">
+                {learningZones.map((zone, idx) => {
+                  const isActive = activeZoneIndex === idx
+                  return (
+                    <button
+                      key={zone.id}
+                      onClick={() => setActiveZoneIndex(idx)}
+                      className="group py-1 cursor-pointer focus:outline-none"
+                      title={`${zone.name} (${zone.meaning})`}
+                    >
+                      <div
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                          isActive ? 'w-7 sm:w-9' : 'w-2 bg-slate-700 group-hover:bg-slate-600'
+                        }`}
+                        style={{
+                          backgroundColor: isActive ? zone.color : undefined
+                        }}
+                      />
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+
             {/* The 3 Signature Pillars matching the Flyer Badges */}
             <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8 w-full">
               <motion.div 
@@ -94,7 +218,7 @@ export default function HeroSection({ onOpenDemoModal }) {
                 className="px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-full border-2 border-brand-blue bg-brand-navy-surface/90 text-white font-bold text-xs sm:text-sm shadow-md flex items-center gap-1.5 cursor-pointer"
               >
                 <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-cyan-400 animate-pulse" />
-                <span>STEM Labs</span>
+                <span>CSL - Composite Skill Lab</span>
               </motion.div>
             </div>
 
@@ -122,10 +246,10 @@ export default function HeroSection({ onOpenDemoModal }) {
                 <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
                 <span className="text-xs sm:text-sm">Teacher Training</span>
               </div>
-              <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
+              {/* <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span className="text-xs sm:text-sm">Zero Hardware Downtime</span>
-              </div>
+              </div> */}
             </div>
           </motion.div>
 

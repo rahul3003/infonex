@@ -103,6 +103,7 @@ export default function KitsShowcase({ onOpenDemoModal }) {
 
   return (
     <section id="kits" className="py-14 sm:py-20 md:py-28 relative bg-brand-navy-darkest circuit-grid z-10">
+      <div id="gallery" className="absolute -top-10" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

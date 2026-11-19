@@ -6,7 +6,7 @@ import { MapPin, Phone, Mail, ShieldCheck } from 'lucide-react'
 
 export default function Footer({ onOpenDemoModal }) {
   return (
-    <footer className="bg-brand-navy-darkest border-t border-brand-navy-border relative pt-12 sm:pt-16 pb-10 sm:pb-12 overflow-hidden">
+    <footer id="contact" className="bg-brand-navy-darkest border-t border-brand-navy-border relative pt-12 sm:pt-16 pb-10 sm:pb-12 overflow-hidden">
       {/* Background glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-28 bg-brand-blue/10 blur-3xl pointer-events-none" />
 
@@ -47,7 +47,7 @@ export default function Footer({ onOpenDemoModal }) {
             <ul className="space-y-1.5 sm:space-y-2 text-xs text-slate-400">
               <li><a href="#pillars" className="hover:text-brand-orange transition-colors">Robotics Engineering</a></li>
               <li><a href="#pillars" className="hover:text-brand-orange transition-colors">AI & Computer Vision</a></li>
-              <li><a href="#pillars" className="hover:text-brand-orange transition-colors">Turnkey STEM Labs</a></li>
+              <li><a href="#pillars" className="hover:text-brand-orange transition-colors">CSL - Composite Skill Lab</a></li>
               <li><a href="#labs" className="hover:text-brand-orange transition-colors">Atal Tinkering Labs</a></li>
               <li><a href="#kits" className="hover:text-brand-orange transition-colors">IoT & Smart Automation</a></li>
               <li><a href="#curriculum" className="hover:text-brand-orange transition-colors">NEP 2020 Curriculum</a></li>
