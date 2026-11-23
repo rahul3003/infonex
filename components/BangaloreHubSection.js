@@ -29,47 +29,47 @@ export default function BangaloreHubSection({ onOpenDemoModal }) {
   ]
 
   return (
-    <section id="about" className="py-14 sm:py-20 md:py-28 relative bg-brand-navy-darker border-t border-brand-navy-border/60 overflow-hidden">
+    <section id="about" className="py-14 sm:py-20 md:py-28 relative bg-white border-t border-slate-200 overflow-hidden z-10">
       <div id="hub" className="absolute -top-10" />
       {/* Background graphic elements */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-64 sm:w-96 h-64 sm:h-96 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-64 sm:w-96 h-64 sm:h-96 bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left: Bangalore Story */}
           <div className="lg:col-span-6">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-navy-surface border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
               <MapPin className="w-3.5 h-3.5" />
               <span>Bangalore Headquarters & R&D</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white font-display mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 font-display mb-4">
               Born in Bangalore. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-400 to-white">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-500 to-slate-900">
                 Powering India's Next Generation.
               </span>
             </h2>
 
-            <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed mb-4">
+            <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed mb-4">
               Bangalore is the heart of India's aerospace, robotics, and artificial intelligence revolutions. Infonex brings that exact industry-grade spirit directly into your school’s daily timetable.
             </p>
 
-            <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed mb-6">
+            <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed mb-6">
               Unlike generic textbook distributors, we are actual robotics engineers and educators who build the hardware, train your teachers, and ensure your lab thrives year after year.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <button
                 onClick={onOpenDemoModal}
-                className="px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl bg-brand-orange hover:bg-brand-orange-hover text-white font-bold text-xs sm:text-sm shadow-xl shadow-brand-orange/25 transition-all flex items-center justify-center gap-2"
+                className="px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl bg-brand-orange hover:bg-brand-orange-hover text-white font-bold text-xs sm:text-sm shadow-xl shadow-brand-orange/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Schedule a Campus Visit</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
               
-              <div className="text-[11px] sm:text-xs text-slate-300">
-                <span className="font-semibold text-white block">Tech Experience Center:</span>
+              <div className="text-[11px] sm:text-xs text-slate-600">
+                <span className="font-bold text-slate-900 block">Tech Experience Center:</span>
                 Koramangala / HSR Corridor, Bangalore
               </div>
             </div>
@@ -83,15 +83,15 @@ export default function BangaloreHubSection({ onOpenDemoModal }) {
                 <motion.div
                   key={idx}
                   whileHover={{ y: -3 }}
-                  className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-brand-navy-surface/80 border border-brand-navy-border hover:border-brand-blue/50 transition-all shadow-md"
+                  className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-blue/50 transition-all shadow-sm"
                 >
-                  <div className="p-2.5 sm:p-3 rounded-xl bg-brand-navy-darkest text-brand-blue w-fit mb-3 border border-brand-navy-border">
+                  <div className="p-2.5 sm:p-3 rounded-xl bg-white text-brand-blue w-fit mb-3 border border-slate-200 shadow-xs">
                     <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-sm sm:text-base font-bold text-white font-display mb-1.5">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 font-display mb-1.5">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {item.desc}
                   </p>
                 </motion.div>

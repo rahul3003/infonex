@@ -28,16 +28,16 @@ export default function ParallaxMarquee() {
   return (
     <div 
       ref={containerRef}
-      className="relative py-6 sm:py-8 overflow-hidden bg-brand-navy-darkest/90 border-t border-b border-brand-navy-border/50 select-none z-10"
+      className="relative py-6 sm:py-8 overflow-hidden bg-slate-50 border-t border-b border-slate-200 select-none z-10"
     >
       {/* Top Track: Left-moving parallax marquee */}
       <motion.div 
         style={{ x: x1 }}
-        className="flex whitespace-nowrap gap-6 sm:gap-10 text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] text-slate-400 font-display will-change-transform mb-2 sm:mb-3"
+        className="flex whitespace-nowrap gap-6 sm:gap-10 text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] text-slate-600 font-display will-change-transform mb-2 sm:mb-3"
       >
         {[...items, ...items, ...items, ...items].map((item, idx) => (
           <div key={idx} className="flex items-center gap-4 sm:gap-6 shrink-0">
-            <span className="hover:text-white transition-colors">{item.text}</span>
+            <span className="hover:text-slate-950 transition-colors">{item.text}</span>
             <span className={`text-base sm:text-lg ${item.dotColor}`}>✦</span>
           </div>
         ))}
@@ -46,7 +46,7 @@ export default function ParallaxMarquee() {
       {/* Bottom Track: Right-moving parallax marquee in reverse */}
       <motion.div 
         style={{ x: x2 }}
-        className="flex whitespace-nowrap gap-6 sm:gap-10 text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-slate-400/80 font-mono will-change-transform"
+        className="flex whitespace-nowrap gap-6 sm:gap-10 text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-slate-500 font-mono will-change-transform"
       >
         {[...items, ...items, ...items, ...items].reverse().map((item, idx) => (
           <div key={idx} className="flex items-center gap-4 sm:gap-6 shrink-0">

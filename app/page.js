@@ -26,7 +26,7 @@ export default function Home() {
   }
 
   return (
-    <div className="relative min-h-screen bg-brand-navy-darkest text-slate-100 overflow-x-hidden selection:bg-brand-orange selection:text-white">
+    <div className="relative min-h-screen bg-white text-slate-900 overflow-x-hidden selection:bg-brand-orange selection:text-white">
       {/* Floating Multi-Layer Scroll Parallax Background (Sobra.be / Fragment.im style) */}
       <ParallaxBackground />
 

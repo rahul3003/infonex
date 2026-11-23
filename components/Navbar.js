@@ -34,28 +34,28 @@ export default function Navbar({ onOpenDemoModal }) {
       {/* Fixed Sticky Appbar on Scroll */}
       <div className="fixed top-0 inset-x-0 z-50 w-full shadow-2xl">
         {/* Top announcement bar */}
-        <div className="bg-brand-navy-darkest/98 border-b border-brand-navy-border/50 py-2 px-4 text-xs backdrop-blur-md">
-        <div className="max-w-7xl mx-auto flex items-center justify-between text-slate-300 gap-4">
+        <div className="bg-slate-100/95 border-b border-slate-200/80 py-2 px-4 text-xs backdrop-blur-md">
+        <div className="max-w-7xl mx-auto flex items-center justify-between text-slate-700 gap-4">
           <div className="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-orange/20 text-brand-orange font-semibold text-[10px] uppercase tracking-wider shrink-0">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-orange/15 text-brand-orange font-bold text-[10px] uppercase tracking-wider shrink-0">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-ping" />
               NEP 2020 Aligned
             </span>
-            <span className="hidden sm:inline text-slate-500">•</span>
-            <span className="hidden sm:inline font-medium text-slate-300 text-xs">
+            <span className="hidden sm:inline text-slate-400">•</span>
+            <span className="hidden sm:inline font-semibold text-slate-800 text-xs">
               Planting Tech Seeds in Every Classroom across India
             </span>
           </div>
 
-          <div className="flex items-center gap-4 text-[11px] shrink-0">
-            <div className="flex items-center gap-1.5 text-slate-300">
+          <div className="flex items-center gap-4 text-[11px] shrink-0 font-medium">
+            <div className="flex items-center gap-1.5 text-slate-700">
               <MapPin className="w-3.5 h-3.5 text-brand-orange shrink-0" />
               <span>Bangalore, Karnataka</span>
             </div>
-            <span className="text-slate-600 hidden md:inline">|</span>
+            <span className="text-slate-300 hidden md:inline">|</span>
             <a 
               href="tel:+918000000000" 
-              className="hidden md:flex items-center gap-1.5 text-slate-300 hover:text-brand-orange transition-colors"
+              className="hidden md:flex items-center gap-1.5 text-slate-700 hover:text-brand-orange transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-brand-blue shrink-0" />
               <span>+91 (80) 4122-STEM</span>
@@ -68,25 +68,25 @@ export default function Navbar({ onOpenDemoModal }) {
       <header 
         className={`transition-all duration-300 ${
           scrolled 
-            ? 'bg-brand-navy-darkest/98 backdrop-blur-2xl border-b border-brand-navy-border shadow-2xl py-2.5' 
-            : 'bg-brand-navy-darkest/90 backdrop-blur-xl border-b border-brand-navy-border/50 py-3.5'
+            ? 'bg-white/98 backdrop-blur-2xl border-b border-slate-200 shadow-md py-2.5' 
+            : 'bg-white/92 backdrop-blur-xl border-b border-slate-200/80 py-3.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4">
             
-            {/* Brand Logo with formation animation */}
+            {/* Brand Logo with formation animation on Light Background */}
             <Link href="/" className="flex items-center group shrink-0">
-              <LogoAnimated size="default" showText={true} showTagline={true} />
+              <LogoAnimated size="default" showText={true} showTagline={true} theme="light" />
             </Link>
 
             {/* Desktop Navigation links pill */}
-            <nav className="hidden lg:flex items-center gap-1 bg-brand-navy-surface/80 border border-brand-navy-border/80 rounded-full px-3 py-1.5 backdrop-blur-xl shadow-inner">
+            <nav className="hidden lg:flex items-center gap-1 bg-slate-100/90 border border-slate-200/90 rounded-full px-3 py-1.5 backdrop-blur-xl shadow-xs">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="px-3.5 py-1.5 text-xs xl:text-sm font-medium text-slate-300 hover:text-white rounded-full transition-all duration-200 hover:bg-brand-blue/15 hover:text-white whitespace-nowrap"
+                  className="px-3.5 py-1.5 text-xs xl:text-sm font-medium text-slate-700 hover:text-slate-950 rounded-full transition-all duration-200 hover:bg-slate-200/80 whitespace-nowrap"
                 >
                   {link.name}
                 </Link>
@@ -111,7 +111,7 @@ export default function Navbar({ onOpenDemoModal }) {
             {/* Mobile Hamburger toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl bg-brand-navy-surface border border-brand-navy-border text-slate-200 hover:text-white focus:outline-none"
+              className="lg:hidden p-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-800 hover:bg-slate-200 focus:outline-none"
               aria-label="Toggle Navigation"
             >
               {mobileMenuOpen ? <X className="w-5 h-5 text-brand-orange" /> : <Menu className="w-5 h-5" />}
@@ -129,7 +129,7 @@ export default function Navbar({ onOpenDemoModal }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[88px] sm:top-[98px] z-50 p-4 bg-brand-navy-darkest/98 backdrop-blur-2xl border-b border-brand-navy-border lg:hidden shadow-2xl"
+            className="fixed inset-x-0 top-[88px] sm:top-[98px] z-50 p-4 bg-white/98 backdrop-blur-2xl border-b border-slate-200 lg:hidden shadow-2xl"
           >
             <div className="flex flex-col gap-1.5">
               {navLinks.map((link) => {
@@ -139,7 +139,7 @@ export default function Navbar({ onOpenDemoModal }) {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-200 hover:text-white hover:bg-brand-navy-surface transition-all font-medium text-sm"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-800 hover:text-slate-950 hover:bg-slate-100 transition-all font-medium text-sm"
                   >
                     <div className="p-2 rounded-lg bg-brand-blue/10 text-brand-blue shrink-0">
                       <Icon className="w-4 h-4" />
@@ -149,7 +149,7 @@ export default function Navbar({ onOpenDemoModal }) {
                 )
               })}
 
-              <div className="pt-3 border-t border-brand-navy-border/60 flex flex-col gap-2 mt-2">
+              <div className="pt-3 border-t border-slate-200 flex flex-col gap-2 mt-2">
                 <Link
                   href="/store"
                   onClick={() => setMobileMenuOpen(false)}

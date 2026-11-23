@@ -36,7 +36,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="relative min-h-screen bg-brand-navy-darkest text-slate-100 selection:bg-brand-orange selection:text-white">
+    <div className="relative min-h-screen bg-white text-slate-900 selection:bg-brand-orange selection:text-white">
       
       {/* Sticky Appbar */}
       <Navbar onOpenDemoModal={() => setIsDemoModalOpen(true)} />
@@ -44,21 +44,21 @@ export default function ContactPage() {
       <main className="relative z-10">
         
         {/* Contact Hero */}
-        <section className="relative py-16 sm:py-20 bg-gradient-to-b from-brand-navy-darker to-brand-navy-darkest border-b border-brand-navy-border/60 overflow-hidden text-center">
-          <div className="absolute top-10 left-1/3 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute top-20 right-1/4 w-80 h-80 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none" />
+        <section className="relative py-16 sm:py-20 bg-gradient-to-b from-slate-50 to-white border-b border-slate-200 overflow-hidden text-center">
+          <div className="absolute top-10 left-1/3 w-80 h-80 bg-brand-blue/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-20 right-1/4 w-80 h-80 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-navy-surface border border-brand-orange/30 text-brand-orange text-xs font-semibold mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-orange/30 text-brand-orange text-xs font-semibold mb-4 shadow-sm">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Bangalore Innovation Office</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-4 font-display">
-              Let's Partner to <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-400 to-yellow-200">Plant Tech Seeds</span>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-4 font-display">
+              Let's Partner to <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-500 to-orange-600">Plant Tech Seeds</span>
             </h1>
 
-            <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Reach out to our Bangalore engineering team for lab consultations, custom syllabus design, or on-campus robotics demonstrations.
             </p>
           </div>
@@ -71,24 +71,24 @@ export default function ContactPage() {
             {/* Left 5 Cols: Contact Information Cards */}
             <div className="lg:col-span-5 space-y-6">
               
-              <div className="p-8 rounded-3xl bg-brand-navy-darker/90 border border-brand-navy-border/80 shadow-xl space-y-6">
+              <div className="p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-lg space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white font-display mb-1">
+                  <h3 className="text-xl font-bold text-slate-900 font-display mb-1">
                     Bangalore Headquarters
                   </h3>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-500">
                     R&D Assembly, Hardware Testing & Central Logistics
                   </p>
                 </div>
 
-                <div className="space-y-4 text-xs sm:text-sm text-slate-300">
+                <div className="space-y-4 text-xs sm:text-sm text-slate-600">
                   <div className="flex items-start gap-3">
-                    <div className="p-2.5 rounded-xl bg-brand-orange/15 text-brand-orange shrink-0">
+                    <div className="p-2.5 rounded-xl bg-brand-orange/10 text-brand-orange shrink-0">
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="font-bold text-white mb-0.5">Physical Facility:</div>
-                      <div className="text-slate-300 leading-relaxed text-xs">
+                      <div className="font-bold text-slate-900 mb-0.5">Physical Facility:</div>
+                      <div className="text-slate-600 leading-relaxed text-xs">
                         Infonex STEM Labs Pvt Ltd<br />
                         Koramangala / HSR Innovation Corridor<br />
                         Bangalore, Karnataka - 560034, India
@@ -97,50 +97,50 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <div className="p-2.5 rounded-xl bg-brand-blue/15 text-brand-blue shrink-0">
+                    <div className="p-2.5 rounded-xl bg-brand-blue/10 text-brand-blue shrink-0">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="font-bold text-white mb-0.5">Telephone Support:</div>
-                      <a href="tel:+918000000000" className="text-slate-300 hover:text-brand-orange transition-colors text-xs block">
+                      <div className="font-bold text-slate-900 mb-0.5">Telephone Support:</div>
+                      <a href="tel:+918000000000" className="text-slate-600 hover:text-brand-orange transition-colors text-xs block">
                         +91 (80) 4122-STEM (Mon–Sat, 9AM–6:30PM)
                       </a>
-                      <a href="tel:+919880012345" className="text-slate-300 hover:text-brand-orange transition-colors text-xs block mt-0.5">
+                      <a href="tel:+919880012345" className="text-slate-600 hover:text-brand-orange transition-colors text-xs block mt-0.5">
                         Direct Helpline: +91 98800 12345
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <div className="p-2.5 rounded-xl bg-emerald-500/15 text-emerald-400 shrink-0">
+                    <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-600 shrink-0">
                       <Mail className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="font-bold text-white mb-0.5">Official Inquiries:</div>
-                      <a href="mailto:partnerships@infonex.in" className="text-slate-300 hover:text-brand-orange transition-colors text-xs block">
+                      <div className="font-bold text-slate-900 mb-0.5">Official Inquiries:</div>
+                      <a href="mailto:partnerships@infonex.in" className="text-slate-600 hover:text-brand-orange transition-colors text-xs block">
                         partnerships@infonex.in
                       </a>
-                      <a href="mailto:support@infonex.in" className="text-slate-300 hover:text-brand-orange transition-colors text-xs block mt-0.5">
+                      <a href="mailto:support@infonex.in" className="text-slate-600 hover:text-brand-orange transition-colors text-xs block mt-0.5">
                         support@infonex.in
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <div className="p-2.5 rounded-xl bg-purple-500/15 text-purple-400 shrink-0">
+                    <div className="p-2.5 rounded-xl bg-purple-500/10 text-purple-600 shrink-0">
                       <Clock className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="font-bold text-white mb-0.5">Guaranteed SLA:</div>
-                      <div className="text-slate-300 text-xs">
+                      <div className="font-bold text-slate-900 mb-0.5">Guaranteed SLA:</div>
+                      <div className="text-slate-600 text-xs">
                         Every institutional query answered within 4 business hours.
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-brand-navy-border/60 flex items-center gap-2 text-xs text-emerald-400 font-mono">
-                  <ShieldCheck className="w-4 h-4 shrink-0" />
+                <div className="pt-4 border-t border-slate-200 flex items-center gap-2 text-xs text-emerald-600 font-mono">
+                  <ShieldCheck className="w-4 h-4 shrink-0 text-emerald-500" />
                   <span>Official Government & ATL Vendor Compliant</span>
                 </div>
               </div>
@@ -149,7 +149,7 @@ export default function ContactPage() {
 
             {/* Right 7 Cols: Interactive Contact Form */}
             <div className="lg:col-span-7">
-              <div className="p-8 sm:p-10 rounded-3xl bg-brand-navy-darker/90 border border-brand-navy-border/80 shadow-2xl">
+              <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl shadow-slate-200/50">
                 
                 {submitted ? (
                   <motion.div
@@ -157,18 +157,18 @@ export default function ContactPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="text-center py-12 space-y-4"
                   >
-                    <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+                    <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center mx-auto">
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
-                    <h3 className="text-2xl font-extrabold text-white font-display">
+                    <h3 className="text-2xl font-extrabold text-slate-900 font-display">
                       Thank You, {formData.name || 'Educator'}!
                     </h3>
-                    <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
+                    <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
                       Your inquiry has been routed directly to our Bangalore regional team. An education consultant will reach out to you within 4 hours.
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="px-6 py-2.5 rounded-full bg-brand-navy-surface border border-brand-navy-border text-xs text-slate-300 hover:text-white mt-4"
+                      className="px-6 py-2.5 rounded-full bg-slate-100 border border-slate-200 text-xs text-slate-700 hover:text-slate-900 mt-4 font-semibold"
                     >
                       Send Another Message
                     </button>
@@ -176,17 +176,17 @@ export default function ContactPage() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                      <h3 className="text-xl font-bold text-white font-display mb-1">
+                      <h3 className="text-xl font-bold text-slate-900 font-display mb-1">
                         Send Us an Inquiry
                       </h3>
-                      <p className="text-xs text-slate-400 mb-6">
+                      <p className="text-xs text-slate-500 mb-6">
                         Complete this form to request a lab proposal or curriculum overview.
                       </p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-600 mb-1.5 font-bold">
                           Your Name *
                         </label>
                         <input
@@ -195,12 +195,12 @@ export default function ContactPage() {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder="e.g. Dr. Rajesh Sharma"
-                          className="w-full px-4 py-2.5 rounded-xl bg-brand-navy-surface border border-brand-navy-border text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue"
+                          className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-brand-blue"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-600 mb-1.5 font-bold">
                           School / Institution Name *
                         </label>
                         <input
@@ -209,20 +209,20 @@ export default function ContactPage() {
                           value={formData.schoolName}
                           onChange={(e) => setFormData({ ...formData, schoolName: e.target.value })}
                           placeholder="e.g. Bangalore Public School"
-                          className="w-full px-4 py-2.5 rounded-xl bg-brand-navy-surface border border-brand-navy-border text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue"
+                          className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-brand-blue"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-600 mb-1.5 font-bold">
                           Your Role / Designation
                         </label>
                         <select
                           value={formData.role}
                           onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                          className="w-full px-4 py-2.5 rounded-xl bg-brand-navy-surface border border-brand-navy-border text-xs text-white focus:outline-none focus:border-brand-blue"
+                          className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:bg-white focus:border-brand-blue"
                         >
                           <option>Principal / Trustee</option>
                           <option>Academic Director / Dean</option>
@@ -233,7 +233,7 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-600 mb-1.5 font-bold">
                           City & State *
                         </label>
                         <input
@@ -242,14 +242,14 @@ export default function ContactPage() {
                           value={formData.city}
                           onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                           placeholder="e.g. Bangalore, Karnataka"
-                          className="w-full px-4 py-2.5 rounded-xl bg-brand-navy-surface border border-brand-navy-border text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue"
+                          className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-brand-blue"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-600 mb-1.5 font-bold">
                           Phone Number (WhatsApp) *
                         </label>
                         <input
@@ -258,12 +258,12 @@ export default function ContactPage() {
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="+91 98800 00000"
-                          className="w-full px-4 py-2.5 rounded-xl bg-brand-navy-surface border border-brand-navy-border text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue"
+                          className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-brand-blue"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">
+                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-600 mb-1.5 font-bold">
                           Official Email *
                         </label>
                         <input
@@ -272,19 +272,19 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="principal@school.edu.in"
-                          className="w-full px-4 py-2.5 rounded-xl bg-brand-navy-surface border border-brand-navy-border text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue"
+                          className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-brand-blue"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-600 mb-1.5 font-bold">
                         Primary Interest / Requirement
                       </label>
                       <select
                         value={formData.requirement}
                         onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl bg-brand-navy-surface border border-brand-navy-border text-xs text-white focus:outline-none focus:border-brand-blue"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:bg-white focus:border-brand-blue"
                       >
                         <option>Turnkey Innovation Lab Setup (Physical Lab)</option>
                         <option>NEP 2020 K-12 Robotics Curriculum & Workbooks</option>
@@ -295,7 +295,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-600 mb-1.5 font-bold">
                         Additional Message / Student Strength
                       </label>
                       <textarea
@@ -303,7 +303,7 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         placeholder="Share any specific requirements (e.g., student batch size, target start term)..."
-                        className="w-full px-4 py-2.5 rounded-xl bg-brand-navy-surface border border-brand-navy-border text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-blue resize-none"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-brand-blue resize-none"
                       />
                     </div>
 

@@ -8,6 +8,7 @@ export default function LogoAnimated({
   showText = true, 
   showTagline = false,
   interactive = true,
+  theme = 'dark', // 'dark' | 'light'
   className = "" 
 }) {
   const [isHovered, setIsHovered] = useState(false)
@@ -84,7 +85,7 @@ export default function LogoAnimated({
             r="8"
             stroke="#1D4E89"
             strokeWidth="4"
-            fill="#050D1A"
+            fill={theme === 'light' ? "#FFFFFF" : "#050D1A"}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.1 }}
@@ -96,7 +97,7 @@ export default function LogoAnimated({
             r="8"
             stroke="#0090FF"
             strokeWidth="4"
-            fill="#050D1A"
+            fill={theme === 'light' ? "#FFFFFF" : "#050D1A"}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.2 }}
@@ -108,7 +109,7 @@ export default function LogoAnimated({
             r="8"
             stroke="#FF6B00"
             strokeWidth="4"
-            fill="#050D1A"
+            fill={theme === 'light' ? "#FFFFFF" : "#050D1A"}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.3 }}
@@ -123,7 +124,7 @@ export default function LogoAnimated({
             r="7"
             stroke="#1D4E89"
             strokeWidth="3.5"
-            fill="#050D1A"
+            fill={theme === 'light' ? "#FFFFFF" : "#050D1A"}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.4, delay: 1.1 }}
@@ -134,7 +135,7 @@ export default function LogoAnimated({
             r="7"
             stroke="#0090FF"
             strokeWidth="3.5"
-            fill="#050D1A"
+            fill={theme === 'light' ? "#FFFFFF" : "#050D1A"}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.4, delay: 1.25 }}
@@ -281,7 +282,7 @@ export default function LogoAnimated({
       {showText && (
         <div className="flex flex-col">
           <div className="flex items-center tracking-wider font-extrabold font-display leading-none">
-            <span className={`text-white transition-colors duration-300 ${
+            <span className={`${theme === 'light' ? 'text-slate-900' : 'text-white'} transition-colors duration-300 ${
               size === 'small' 
                 ? 'text-sm sm:text-base' 
                 : size === 'large' 
@@ -314,7 +315,7 @@ export default function LogoAnimated({
 
           {showTagline && (
             <motion.div 
-              className="text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] text-slate-300 font-semibold uppercase mt-0.5 sm:mt-1 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"
+              className={`text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] ${theme === 'light' ? 'text-slate-500' : 'text-slate-300'} font-semibold uppercase mt-0.5 sm:mt-1 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap`}
               initial={{ opacity: 0, y: 3 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2 }}

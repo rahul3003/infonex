@@ -179,32 +179,32 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
   return (
     <section 
       id="anatomy"
-      className="relative py-14 sm:py-20 md:py-28 bg-brand-navy-darker/80 border-t border-b border-brand-navy-border/60 z-10 overflow-hidden"
+      className="relative py-14 sm:py-20 md:py-28 bg-slate-50 border-t border-b border-slate-200 z-10 overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-[650px] h-60 sm:h-[450px] rounded-full blur-3xl pointer-events-none transition-colors duration-700"
         style={{
-          backgroundColor: `${active.themeColor}15`
+          backgroundColor: `${active.themeColor}12`
         }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Top Header */}
-        <div className="flex flex-col sm:flex-row items-center justify-between border-b border-brand-navy-border/50 pb-4 mb-8 sm:mb-12 gap-3">
+        <div className="flex flex-col sm:flex-row items-center justify-between border-b border-slate-200 pb-4 mb-8 sm:mb-12 gap-3">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping shrink-0" />
-            <span className="font-mono uppercase tracking-widest text-slate-300 text-[10px] sm:text-xs">
+            <span className="font-mono uppercase tracking-widest text-brand-orange font-bold text-[10px] sm:text-xs">
               Interactive Brand Architecture
             </span>
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="font-mono text-[11px] text-slate-400">
+            <span className="font-mono text-[11px] text-slate-500 font-medium">
               STATE 0{currentState + 1} OF 04
             </span>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-navy-darkest border border-brand-navy-border text-[11px] text-slate-300 font-mono">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] text-slate-700 font-mono shadow-xs">
               <span className="w-2 h-2 rounded-full transition-colors duration-300" style={{ backgroundColor: active.themeColor }} />
               <span>{active.voltage}</span>
             </div>
@@ -252,13 +252,10 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
                   exit="exit"
                   className="w-full"
                 >
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] font-display">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] font-display">
                     {active.prefix}{" "}
                     <span 
                       className={`${active.keywordColor} block sm:inline`}
-                      style={{
-                        textShadow: `0 0 35px ${active.glowColor}`
-                      }}
                     >
                       {active.keyword}.
                     </span>
@@ -276,7 +273,7 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
                   initial="initial"
                   animate="animate"
                   exit="exit"
-                  className="text-slate-300 text-xs sm:text-base leading-relaxed max-w-xl"
+                  className="text-slate-600 text-xs sm:text-base leading-relaxed max-w-xl font-normal"
                 >
                   {active.description}
                 </motion.p>
@@ -297,7 +294,7 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
                   {active.capabilities.map((cap, i) => (
                     <span 
                       key={i}
-                      className="px-2.5 sm:px-3 py-1 rounded-lg bg-brand-navy-surface border border-brand-navy-border/70 text-[11px] sm:text-xs text-slate-300 font-medium"
+                      className="px-2.5 sm:px-3 py-1 rounded-lg bg-white border border-slate-200 text-[11px] sm:text-xs text-slate-700 font-medium shadow-xs"
                     >
                       {cap}
                     </span>
@@ -321,9 +318,6 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
 
           {/* ========================================================
               RIGHT COLUMN: INTERACTIVE 3D CUBIC MATRIX & CARD SHOWCASE
-              Instead of the static logo SVG, displays cubic flip cells.
-              On cursor point (hover), card background displays that cell's image!
-              On click, cell performs a 3D cubic flip revealing specs & telemetry!
               ======================================================== */}
           <div className="lg:col-span-6 flex items-center justify-center relative">
             
@@ -331,24 +325,22 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
             <div
               className="absolute w-72 sm:w-[500px] h-72 sm:h-[500px] rounded-full blur-[100px] pointer-events-none transition-colors duration-700"
               style={{
-                backgroundColor: `${displayedState.themeColor}30`
+                backgroundColor: `${displayedState.themeColor}15`
               }}
             />
 
             {/* Visual Glass Stage Card */}
-            <div className="relative p-4 sm:p-6 rounded-3xl bg-brand-navy-darkest/95 border border-brand-navy-border/90 shadow-2xl backdrop-blur-2xl flex flex-col justify-between overflow-hidden w-full max-w-lg lg:max-w-xl mx-auto min-h-[460px] sm:min-h-[500px]">
+            <div className="relative p-4 sm:p-6 rounded-3xl bg-white border border-slate-200 shadow-2xl shadow-slate-300/50 flex flex-col justify-between overflow-hidden w-full max-w-lg lg:max-w-xl mx-auto min-h-[460px] sm:min-h-[500px]">
               
               {/* ============================================================
-                  DYNAMIC CARD BACKGROUND IMAGE LAYER:
-                  "in card in background for on cursor point it must show that cell image"
-                  Smoothly crossfades to that hovered/pointed cell's high-res image!
+                  DYNAMIC CARD BACKGROUND IMAGE LAYER
                   ============================================================ */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl z-0">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={displayedIndex}
                     initial={{ opacity: 0, scale: 1.08 }}
-                    animate={{ opacity: 0.38, scale: 1 }}
+                    animate={{ opacity: 0.25, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.04 }}
                     transition={{ duration: 0.45, ease: "easeOut" }}
                     className="absolute inset-0 bg-cover bg-center"
@@ -358,19 +350,18 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
                   />
                 </AnimatePresence>
 
-                {/* Dark technical vignette masks to keep cells and typography 100% crisp */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050D1A] via-[#050D1A]/80 to-[#050D1A]/60" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_15%,#050D1A_90%)]" />
-                <div className="absolute inset-0 opacity-15 circuit-grid" />
+                {/* Subtle vignette masks on clean white */}
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/60" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#FFFFFF_90%)]" />
               </div>
 
               {/* Card Header Toolbar */}
-              <div className="relative z-10 flex items-center justify-between pb-3 mb-3 border-b border-brand-navy-border/70">
+              <div className="relative z-10 flex items-center justify-between pb-3 mb-3 border-b border-slate-200">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-                  <span className="text-[11px] font-mono text-slate-400 ml-1">
+                  <span className="text-[11px] font-mono text-slate-500 ml-1">
                     brand-matrix.sys
                   </span>
                 </div>
@@ -379,9 +370,9 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
                   <span 
                     className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider border"
                     style={{
-                      backgroundColor: `${displayedState.themeColor}25`,
-                      borderColor: `${displayedState.themeColor}60`,
-                      color: displayedState.themeColor === "#FFA114" ? "#FFB84D" : displayedState.themeColor
+                      backgroundColor: `${displayedState.themeColor}15`,
+                      borderColor: `${displayedState.themeColor}50`,
+                      color: displayedState.themeColor === "#FFA114" ? "#D97706" : displayedState.themeColor
                     }}
                   >
                     {hoveredCell !== null ? `HOVERED: STATE 0${displayedIndex + 1}` : `ACTIVE: STATE 0${displayedIndex + 1}`}
@@ -390,7 +381,7 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
                   {Object.keys(flippedCells).length > 0 && (
                     <button
                       onClick={handleResetFlips}
-                      className="flex items-center gap-1 px-2 py-0.5 rounded bg-brand-navy-surface hover:bg-brand-navy-light text-slate-300 text-[10px] font-mono border border-brand-navy-border transition-colors cursor-pointer"
+                      className="flex items-center gap-1 px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-mono border border-slate-200 transition-colors cursor-pointer"
                       title="Reset flipped cells"
                     >
                       <RefreshCw className="w-2.5 h-2.5 text-brand-orange" />
@@ -579,13 +570,13 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
               </div>
 
               {/* Card Footer Status Bar */}
-              <div className="relative z-10 pt-3 border-t border-brand-navy-border/70 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono">
-                <div className="flex items-center gap-2 text-slate-300">
+              <div className="relative z-10 pt-3 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono">
+                <div className="flex items-center gap-2 text-slate-700">
                   <span className="w-2 h-2 rounded-full" style={{ backgroundColor: displayedState.themeColor }} />
-                  <span className="font-bold text-white">{displayedState.keyword}:</span>
-                  <span className="text-slate-400 truncate max-w-[200px] sm:max-w-xs">{displayedState.voltage}</span>
+                  <span className="font-bold text-slate-900">{displayedState.keyword}:</span>
+                  <span className="text-slate-500 truncate max-w-[200px] sm:max-w-xs">{displayedState.voltage}</span>
                 </div>
-                <div className="text-slate-400 flex items-center gap-1.5">
+                <div className="text-slate-500 flex items-center gap-1.5">
                   <Sparkles className="w-3 h-3 text-brand-orange shrink-0" />
                   <span>Hover to view image • Click cell to flip</span>
                 </div>
@@ -600,32 +591,32 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
         {/* ========================================================
             BOTTOM PROGRESS INDICATOR (4 HORIZONTAL DASHES)
             ======================================================== */}
-        <div className="flex flex-col sm:flex-row items-center justify-between border-t border-brand-navy-border/50 pt-5 sm:pt-6 mt-8 sm:mt-12 gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between border-t border-slate-200 pt-5 sm:pt-6 mt-8 sm:mt-12 gap-4">
           
           {/* Controls & State indicator */}
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrev}
-              className="p-2 rounded-xl bg-brand-navy-surface border border-brand-navy-border text-slate-300 hover:text-white hover:border-slate-500 transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-slate-950 hover:bg-slate-100 transition-colors cursor-pointer shadow-xs"
               title="Previous State"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={handleNext}
-              className="p-2 rounded-xl bg-brand-navy-surface border border-brand-navy-border text-slate-300 hover:text-white hover:border-slate-500 transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-slate-950 hover:bg-slate-100 transition-colors cursor-pointer shadow-xs"
               title="Next State"
             >
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="p-2 rounded-xl bg-brand-navy-surface border border-brand-navy-border text-slate-300 hover:text-white hover:border-slate-500 transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-slate-950 hover:bg-slate-100 transition-colors cursor-pointer shadow-xs"
               title={isAutoPlaying ? "Pause autoplay" : "Resume autoplay"}
             >
               {isAutoPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
             </button>
-            <span className="text-[11px] font-mono text-slate-400 ml-1">
+            <span className="text-[11px] font-mono text-slate-500 ml-1 font-medium">
               {currentState + 1} / 4
             </span>
           </div>
@@ -644,8 +635,8 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
                   <motion.div
                     className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                       isActive 
-                        ? 'w-10 sm:w-16 shadow-lg' 
-                        : 'w-6 sm:w-8 bg-slate-800 hover:bg-slate-700'
+                        ? 'w-10 sm:w-16 shadow-md' 
+                        : 'w-6 sm:w-8 bg-slate-200 hover:bg-slate-300'
                     }`}
                     style={{
                       backgroundColor: isActive ? st.themeColor : undefined,
@@ -659,7 +650,7 @@ export default function InteractiveCircuitPlayground({ onOpenDemoModal }) {
           </div>
 
           {/* Hint */}
-          <div className="text-[11px] font-mono text-slate-400">
+          <div className="text-[11px] font-mono text-slate-500">
             Click any dash to explore
           </div>
 

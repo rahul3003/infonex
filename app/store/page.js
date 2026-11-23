@@ -174,22 +174,22 @@ export default function StorePage() {
   })
 
   return (
-    <div className="relative min-h-screen bg-brand-navy-darkest text-slate-100 selection:bg-brand-orange selection:text-white">
+    <div className="relative min-h-screen bg-white text-slate-900 selection:bg-brand-orange selection:text-white">
       
       {/* Top Announcement Bar */}
-      <div className="bg-brand-navy-darker border-b border-brand-navy-border/50 py-2 px-4 text-xs relative z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between text-slate-300 gap-4">
+      <div className="bg-slate-100 border-b border-slate-200 py-2 px-4 text-xs relative z-50">
+        <div className="max-w-7xl mx-auto flex items-center justify-between text-slate-600 gap-4">
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-orange/20 text-brand-orange font-semibold text-[10px] uppercase tracking-wider shrink-0">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-orange/15 text-brand-orange font-semibold text-[10px] uppercase tracking-wider shrink-0">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-ping" />
               Direct From Bangalore R&D
             </span>
-            <span className="text-slate-400 hidden sm:inline">
+            <span className="text-slate-500 hidden sm:inline">
               Official Infonex Hardware Store • School Purchase Orders Accepted
             </span>
           </div>
           <div className="flex items-center gap-4 text-[11px] shrink-0">
-            <a href="tel:+918000000000" className="flex items-center gap-1.5 text-slate-300 hover:text-brand-orange transition-colors">
+            <a href="tel:+918000000000" className="flex items-center gap-1.5 text-slate-600 hover:text-brand-orange transition-colors">
               <Phone className="w-3.5 h-3.5 text-brand-blue" />
               <span>Bulk Enquiries: +91 (80) 4122-STEM</span>
             </a>
@@ -198,23 +198,23 @@ export default function StorePage() {
       </div>
 
       {/* Main Header */}
-      <header className="sticky top-0 z-40 bg-brand-navy-darkest/95 backdrop-blur-xl border-b border-brand-navy-border shadow-xl py-3.5">
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-sm py-3.5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center group shrink-0">
-              <LogoAnimated size="default" showText={true} showTagline={true} />
+              <LogoAnimated size="default" showText={true} showTagline={true} theme="light" />
             </Link>
-            <div className="hidden md:flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full bg-brand-navy-surface border border-brand-navy-border text-slate-400">
+            <div className="hidden md:flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-600">
               <ShoppingBag className="w-3.5 h-3.5 text-brand-orange" />
-              <span className="text-white font-bold">STORE FRONT</span>
+              <span className="text-slate-900 font-bold">STORE FRONT</span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="px-4 py-2 rounded-full bg-brand-navy-surface hover:bg-brand-navy-light text-slate-200 hover:text-white font-medium text-xs sm:text-sm border border-brand-navy-border transition-all flex items-center gap-1.5"
+              className="px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 font-medium text-xs sm:text-sm border border-slate-200 transition-all flex items-center gap-1.5"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Home</span>
@@ -233,52 +233,52 @@ export default function StorePage() {
       </header>
 
       {/* Hero Banner */}
-      <section className="relative py-12 sm:py-16 bg-gradient-to-b from-brand-navy-darker to-brand-navy-darkest border-b border-brand-navy-border/60 overflow-hidden">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative py-12 sm:py-16 bg-gradient-to-b from-slate-50 to-white border-b border-slate-200 overflow-hidden">
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-navy-surface border border-brand-orange/30 text-brand-orange text-xs font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-orange/30 text-brand-orange text-xs font-semibold mb-4 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" />
             <span>NEP 2020 & ATL Ready Hardware Kits</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 font-display">
-            Infonex Robotics & STEM <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-400 to-yellow-200">Hardware Store</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4 font-display">
+            Infonex Robotics & STEM <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-500 to-orange-600">Hardware Store</span>
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
             Direct institutional and retail kits engineered in Bangalore. Every kit comes pre-calibrated with grade-mapped curriculum, teacher guides, and zero hardware downtime guarantee.
           </p>
 
           {/* Quick Value Props */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto">
-            <div className="p-3 rounded-xl bg-brand-navy-surface/60 border border-brand-navy-border/60 flex items-center gap-2.5 text-left">
+            <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center gap-2.5 text-left">
               <Truck className="w-5 h-5 text-brand-blue shrink-0" />
               <div>
-                <div className="text-xs font-bold text-white">24-48 Hr Dispatch</div>
-                <div className="text-[10px] text-slate-400">Direct from Bangalore Hub</div>
+                <div className="text-xs font-bold text-slate-900">24-48 Hr Dispatch</div>
+                <div className="text-[10px] text-slate-500">Direct from Bangalore Hub</div>
               </div>
             </div>
-            <div className="p-3 rounded-xl bg-brand-navy-surface/60 border border-brand-navy-border/60 flex items-center gap-2.5 text-left">
-              <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+            <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center gap-2.5 text-left">
+              <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0" />
               <div>
-                <div className="text-xs font-bold text-white">1 Year Warranty</div>
-                <div className="text-[10px] text-slate-400">Instant component swap</div>
+                <div className="text-xs font-bold text-slate-900">1 Year Warranty</div>
+                <div className="text-[10px] text-slate-500">Instant component swap</div>
               </div>
             </div>
-            <div className="p-3 rounded-xl bg-brand-navy-surface/60 border border-brand-navy-border/60 flex items-center gap-2.5 text-left">
+            <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center gap-2.5 text-left">
               <RotateCcw className="w-5 h-5 text-brand-orange shrink-0" />
               <div>
-                <div className="text-xs font-bold text-white">Free Spares Policy</div>
-                <div className="text-[10px] text-slate-400">For partner institutions</div>
+                <div className="text-xs font-bold text-slate-900">Free Spares Policy</div>
+                <div className="text-[10px] text-slate-500">For partner institutions</div>
               </div>
             </div>
-            <div className="p-3 rounded-xl bg-brand-navy-surface/60 border border-brand-navy-border/60 flex items-center gap-2.5 text-left">
-              <Tag className="w-5 h-5 text-purple-400 shrink-0" />
+            <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center gap-2.5 text-left">
+              <Tag className="w-5 h-5 text-purple-500 shrink-0" />
               <div>
-                <div className="text-xs font-bold text-white">Bulk School Pricing</div>
-                <div className="text-[10px] text-slate-400">Up to 25% off on 10+ sets</div>
+                <div className="text-xs font-bold text-slate-900">Bulk School Pricing</div>
+                <div className="text-[10px] text-slate-500">Up to 25% off on 10+ sets</div>
               </div>
             </div>
           </div>
@@ -286,7 +286,7 @@ export default function StorePage() {
       </section>
 
       {/* Filter & Search Bar */}
-      <section className="py-6 border-b border-brand-navy-border/50 sticky top-[72px] z-30 bg-brand-navy-darkest/95 backdrop-blur-lg">
+      <section className="py-6 border-b border-slate-200 sticky top-[72px] z-30 bg-white/95 backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           
           {/* Category Tabs */}
@@ -300,7 +300,7 @@ export default function StorePage() {
                   className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
                     isActive
                       ? 'bg-brand-orange text-white shadow-md shadow-brand-orange/25'
-                      : 'bg-brand-navy-surface text-slate-300 hover:text-white hover:bg-brand-navy-light border border-brand-navy-border'
+                      : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200 border border-slate-200'
                   }`}
                 >
                   {cat.name}
@@ -317,7 +317,7 @@ export default function StorePage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search kits, rovers, sensors..."
-              className="w-full pl-9 pr-4 py-1.5 rounded-full bg-brand-navy-surface border border-brand-navy-border text-xs text-white placeholder-slate-400 focus:outline-none focus:border-brand-blue"
+              className="w-full pl-9 pr-4 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-brand-blue"
             />
           </div>
 
@@ -328,20 +328,20 @@ export default function StorePage() {
       <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold text-white font-display">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 font-display">
               {categories.find(c => c.id === activeCategory)?.name || 'Kits'}
             </h2>
-            <p className="text-xs text-slate-400 mt-0.5">Showing {filteredProducts.length} items</p>
+            <p className="text-xs text-slate-500 mt-0.5">Showing {filteredProducts.length} items</p>
           </div>
           <span className="text-xs text-brand-orange font-mono font-medium">All prices include GST</span>
         </div>
 
         {filteredProducts.length === 0 ? (
-          <div className="text-center py-20 rounded-2xl bg-brand-navy-surface/40 border border-brand-navy-border">
-            <p className="text-slate-400 text-sm">No products found matching your search.</p>
+          <div className="text-center py-20 rounded-2xl bg-slate-50 border border-slate-200">
+            <p className="text-slate-500 text-sm">No products found matching your search.</p>
             <button
               onClick={() => { setActiveCategory('all'); setSearchQuery(''); }}
-              className="mt-3 px-4 py-1.5 rounded-full bg-brand-navy-light text-xs text-white hover:bg-brand-orange"
+              className="mt-3 px-4 py-1.5 rounded-full bg-slate-200 text-xs text-slate-800 hover:bg-brand-orange hover:text-white"
             >
               Reset Filters
             </button>
@@ -355,44 +355,44 @@ export default function StorePage() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="rounded-2xl bg-brand-navy-darker/90 border border-brand-navy-border/80 hover:border-brand-blue/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group shadow-lg"
+                className="rounded-2xl bg-white border border-slate-200 hover:border-slate-400 transition-all duration-300 flex flex-col justify-between overflow-hidden group shadow-md shadow-slate-100"
               >
                 <div>
                   {/* Card Header with Badges */}
-                  <div className="p-5 pb-3 flex items-start justify-between gap-2 border-b border-brand-navy-border/40">
+                  <div className="p-5 pb-3 flex items-start justify-between gap-2 border-b border-slate-100">
                     <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${product.badgeColor}`}>
                       {product.badge}
                     </span>
-                    <span className="text-[11px] font-mono text-slate-400 bg-brand-navy-surface px-2.5 py-0.5 rounded-md border border-brand-navy-border">
+                    <span className="text-[11px] font-mono text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-md border border-slate-200">
                       {product.grades}
                     </span>
                   </div>
 
                   {/* Body */}
                   <div className="p-5 space-y-3">
-                    <h3 className="text-lg font-bold text-white font-display group-hover:text-brand-orange transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 font-display group-hover:text-brand-orange transition-colors">
                       {product.title}
                     </h3>
 
                     {/* Ratings */}
                     <div className="flex items-center gap-1.5 text-xs">
-                      <div className="flex text-amber-400">
+                      <div className="flex text-amber-500">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} className="w-3.5 h-3.5 fill-current" />
                         ))}
                       </div>
-                      <span className="text-slate-300 font-bold">{product.rating}</span>
+                      <span className="text-slate-800 font-bold">{product.rating}</span>
                       <span className="text-slate-500">({product.reviews} reviews)</span>
                     </div>
 
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed">
                       {product.description}
                     </p>
 
                     {/* Specs List */}
-                    <div className="pt-2 border-t border-brand-navy-border/40 space-y-1.5">
+                    <div className="pt-2 border-t border-slate-100 space-y-1.5">
                       {product.specs.map((spec, i) => (
-                        <div key={i} className="flex items-center gap-2 text-[11px] text-slate-300">
+                        <div key={i} className="flex items-center gap-2 text-[11px] text-slate-600">
                           <CheckCircle2 className="w-3.5 h-3.5 text-brand-blue shrink-0" />
                           <span>{spec}</span>
                         </div>
@@ -402,13 +402,13 @@ export default function StorePage() {
                 </div>
 
                 {/* Footer with Price & Actions */}
-                <div className="p-5 pt-3 border-t border-brand-navy-border/60 bg-brand-navy-surface/40">
+                <div className="p-5 pt-3 border-t border-slate-100 bg-slate-50/70">
                   <div className="flex items-baseline justify-between mb-3">
                     <div>
-                      <span className="text-2xl font-extrabold text-white font-display">{product.price}</span>
-                      <span className="text-xs text-slate-500 line-through ml-2">{product.originalPrice}</span>
+                      <span className="text-2xl font-extrabold text-slate-900 font-display">{product.price}</span>
+                      <span className="text-xs text-slate-400 line-through ml-2">{product.originalPrice}</span>
                     </div>
-                    <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                    <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
                       {product.dispatch}
                     </span>
                   </div>
@@ -416,7 +416,7 @@ export default function StorePage() {
                   <div className="grid grid-cols-2 gap-2">
                     <button
                       onClick={() => handleOpenQuote(product)}
-                      className="w-full py-2.5 rounded-xl bg-brand-navy-surface hover:bg-brand-navy-light text-slate-200 hover:text-white text-xs font-bold border border-brand-navy-border transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                      className="w-full py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200 transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-sm"
                     >
                       <Tag className="w-3.5 h-3.5 text-brand-blue" />
                       <span>Quote</span>
@@ -439,24 +439,24 @@ export default function StorePage() {
       </section>
 
       {/* Institutional Inquiry Callout */}
-      <section className="py-12 bg-brand-navy-darker border-t border-b border-brand-navy-border/60">
+      <section className="py-12 bg-slate-50 border-t border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-display mb-2">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mb-2">
             Setting Up a School or College Innovation Lab?
           </h3>
-          <p className="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto mb-6">
+          <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto mb-6">
             We provide institutional turnkey bundles with custom lab furniture, master trainers, teacher manuals, and full NEP 2020 syllabus integration.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={() => handleOpenQuote({ title: 'Complete Turnkey Lab Setup', price: 'Turnkey Package' })}
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-brand-orange to-brand-orange-hover text-white text-sm font-bold shadow-lg shadow-brand-orange/30 cursor-pointer"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-brand-orange to-brand-orange-hover text-white text-sm font-bold shadow-lg shadow-brand-orange/30 cursor-pointer hover:scale-105 transition-all"
             >
               Request Institutional Proposal
             </button>
             <Link
-              href="/"
-              className="px-6 py-3 rounded-full bg-brand-navy-surface hover:bg-brand-navy-light text-slate-300 hover:text-white text-sm font-medium border border-brand-navy-border transition-colors"
+              href="/courses"
+              className="px-6 py-3 rounded-full bg-white hover:bg-slate-100 text-slate-700 text-sm font-medium border border-slate-200 transition-colors shadow-sm"
             >
               Explore Infonex Curriculum
             </Link>

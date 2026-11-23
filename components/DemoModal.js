@@ -62,42 +62,42 @@ export default function DemoModal({ isOpen, onClose, initialData = null }) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-brand-navy-darkest/85 backdrop-blur-md overflow-y-auto">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-sm overflow-y-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          className="relative w-full max-w-lg rounded-2xl sm:rounded-3xl bg-brand-navy-surface border border-brand-navy-border shadow-2xl p-5 sm:p-7 md:p-8 my-auto max-h-[92vh] overflow-y-auto"
+          className="relative w-full max-w-lg rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-2xl p-5 sm:p-7 md:p-8 my-auto max-h-[92vh] overflow-y-auto text-slate-900"
         >
           {/* Ambient top glow */}
-          <div className="absolute top-0 right-0 w-36 h-36 bg-brand-orange/15 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-36 h-36 bg-brand-orange/10 rounded-full blur-2xl pointer-events-none" />
 
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-1.5 sm:p-2 rounded-xl bg-brand-navy-darkest/80 border border-brand-navy-border text-slate-300 hover:text-white hover:border-brand-orange transition-colors"
+            className="absolute top-4 right-4 p-1.5 sm:p-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-brand-orange transition-colors"
           >
             <X className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
 
           {!submitted ? (
             <div>
-              <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-orange/15 text-brand-orange text-[10px] sm:text-xs font-bold uppercase tracking-wider w-fit mb-2.5">
+              <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-orange/10 text-brand-orange text-[10px] sm:text-xs font-bold uppercase tracking-wider w-fit mb-2.5">
                 <Sparkles className="w-3 h-3" />
                 <span>On-Campus & Online Sessions</span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white font-display">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display">
                 Book a Free <span className="text-brand-orange">School Demo Lab</span>
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 mt-1 mb-5 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 mt-1 mb-5 leading-relaxed">
                 Our Bangalore STEM specialists will demonstrate live robotics kits, student projects, and explain turnkey ATL/STEM setup for your faculty.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="text-[11px] sm:text-xs font-bold text-slate-300 mb-1 block">
+                    <label className="text-[11px] sm:text-xs font-bold text-slate-700 mb-1 block">
                       School Name *
                     </label>
                     <div className="relative">
@@ -108,13 +108,13 @@ export default function DemoModal({ isOpen, onClose, initialData = null }) {
                         value={formData.schoolName}
                         onChange={(e) => setFormData({ ...formData, schoolName: e.target.value })}
                         placeholder="e.g. Cambridge High"
-                        className="w-full pl-8 sm:pl-9 pr-3 py-2 sm:py-2.5 rounded-xl bg-brand-navy-darkest border border-brand-navy-border text-white text-xs sm:text-sm focus:border-brand-orange outline-none"
+                        className="w-full pl-8 sm:pl-9 pr-3 py-2 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs sm:text-sm focus:bg-white focus:border-brand-orange outline-none"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-[11px] sm:text-xs font-bold text-slate-300 mb-1 block">
+                    <label className="text-[11px] sm:text-xs font-bold text-slate-700 mb-1 block">
                       Contact Person *
                     </label>
                     <div className="relative">
@@ -125,7 +125,7 @@ export default function DemoModal({ isOpen, onClose, initialData = null }) {
                         value={formData.contactPerson}
                         onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
                         placeholder="Dr. Anita Sharma"
-                        className="w-full pl-8 sm:pl-9 pr-3 py-2 sm:py-2.5 rounded-xl bg-brand-navy-darkest border border-brand-navy-border text-white text-xs sm:text-sm focus:border-brand-orange outline-none"
+                        className="w-full pl-8 sm:pl-9 pr-3 py-2 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs sm:text-sm focus:bg-white focus:border-brand-orange outline-none"
                       />
                     </div>
                   </div>
@@ -133,7 +133,7 @@ export default function DemoModal({ isOpen, onClose, initialData = null }) {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="text-[11px] sm:text-xs font-bold text-slate-300 mb-1 block">
+                    <label className="text-[11px] sm:text-xs font-bold text-slate-700 mb-1 block">
                       Email Address *
                     </label>
                     <div className="relative">
@@ -144,13 +144,13 @@ export default function DemoModal({ isOpen, onClose, initialData = null }) {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="principal@school.edu.in"
-                        className="w-full pl-8 sm:pl-9 pr-3 py-2 sm:py-2.5 rounded-xl bg-brand-navy-darkest border border-brand-navy-border text-white text-xs sm:text-sm focus:border-brand-orange outline-none"
+                        className="w-full pl-8 sm:pl-9 pr-3 py-2 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs sm:text-sm focus:bg-white focus:border-brand-orange outline-none"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-[11px] sm:text-xs font-bold text-slate-300 mb-1 block">
+                    <label className="text-[11px] sm:text-xs font-bold text-slate-700 mb-1 block">
                       Phone / WhatsApp *
                     </label>
                     <div className="relative">
@@ -161,7 +161,7 @@ export default function DemoModal({ isOpen, onClose, initialData = null }) {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 98765 43210"
-                        className="w-full pl-8 sm:pl-9 pr-3 py-2 sm:py-2.5 rounded-xl bg-brand-navy-darkest border border-brand-navy-border text-white text-xs sm:text-sm focus:border-brand-orange outline-none"
+                        className="w-full pl-8 sm:pl-9 pr-3 py-2 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs sm:text-sm focus:bg-white focus:border-brand-orange outline-none"
                       />
                     </div>
                   </div>
@@ -169,7 +169,7 @@ export default function DemoModal({ isOpen, onClose, initialData = null }) {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="text-[11px] sm:text-xs font-bold text-slate-300 mb-1 block">
+                    <label className="text-[11px] sm:text-xs font-bold text-slate-700 mb-1 block">
                       City / Location
                     </label>
                     <div className="relative">
@@ -179,19 +179,19 @@ export default function DemoModal({ isOpen, onClose, initialData = null }) {
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                         placeholder="Bangalore / Pan-India"
-                        className="w-full pl-8 sm:pl-9 pr-3 py-2 sm:py-2.5 rounded-xl bg-brand-navy-darkest border border-brand-navy-border text-white text-xs sm:text-sm focus:border-brand-orange outline-none"
+                        className="w-full pl-8 sm:pl-9 pr-3 py-2 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs sm:text-sm focus:bg-white focus:border-brand-orange outline-none"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-[11px] sm:text-xs font-bold text-slate-300 mb-1 block">
+                    <label className="text-[11px] sm:text-xs font-bold text-slate-700 mb-1 block">
                       Primary Interest
                     </label>
                     <select
                       value={formData.interest}
                       onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                      className="w-full px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-xl bg-brand-navy-darkest border border-brand-navy-border text-white text-xs sm:text-sm focus:border-brand-orange outline-none"
+                      className="w-full px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs sm:text-sm focus:bg-white focus:border-brand-orange outline-none"
                     >
                       <option value="Turnkey Robotics & STEM Lab">Turnkey Robotics Lab</option>
                       <option value="Atal Tinkering Lab (ATL)">Atal Tinkering Lab (ATL)</option>
@@ -202,7 +202,7 @@ export default function DemoModal({ isOpen, onClose, initialData = null }) {
                 </div>
 
                 <div>
-                  <label className="text-[11px] sm:text-xs font-bold text-slate-300 mb-1 block">
+                  <label className="text-[11px] sm:text-xs font-bold text-slate-700 mb-1 block">
                     Notes / Requirements
                   </label>
                   <textarea
@@ -210,7 +210,7 @@ export default function DemoModal({ isOpen, onClose, initialData = null }) {
                     value={formData.comments}
                     onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
                     placeholder="Tell us about student count or preferred demo date..."
-                    className="w-full px-3 py-2 rounded-xl bg-brand-navy-darkest border border-brand-navy-border text-white text-xs sm:text-sm focus:border-brand-orange outline-none resize-none"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs sm:text-sm focus:bg-white focus:border-brand-orange outline-none resize-none"
                   />
                 </div>
 
@@ -231,7 +231,7 @@ export default function DemoModal({ isOpen, onClose, initialData = null }) {
                       </>
                     )}
                   </motion.button>
-                  <p className="text-[10px] sm:text-[11px] text-center text-slate-400 mt-1.5">
+                  <p className="text-[10px] sm:text-[11px] text-center text-slate-500 mt-1.5">
                     Our team will contact you within 2-4 business hours. No obligations.
                   </p>
                 </div>
@@ -239,19 +239,19 @@ export default function DemoModal({ isOpen, onClose, initialData = null }) {
             </div>
           ) : (
             <div className="py-6 sm:py-8 text-center">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 mx-auto flex items-center justify-center mb-3">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-500/10 text-emerald-600 border border-emerald-500/30 mx-auto flex items-center justify-center mb-3">
                 <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white font-display mb-1.5">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-display mb-1.5">
                 Demo Request Confirmed!
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 max-w-sm mx-auto mb-5 leading-relaxed">
-                Thank you, <span className="font-semibold text-white">{formData.contactPerson}</span> from <span className="font-semibold text-brand-orange">{formData.schoolName}</span>. 
-                Our Bangalore STEM team will contact you via <span className="font-semibold text-white">{formData.phone}</span>.
+              <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto mb-5 leading-relaxed">
+                Thank you, <span className="font-semibold text-slate-900">{formData.contactPerson}</span> from <span className="font-semibold text-brand-orange">{formData.schoolName}</span>. 
+                Our Bangalore STEM team will contact you via <span className="font-semibold text-slate-900">{formData.phone}</span>.
               </p>
               <button
                 onClick={handleReset}
-                className="px-5 py-2 rounded-xl bg-brand-navy-light text-white font-bold text-xs hover:bg-brand-orange transition-colors"
+                className="px-5 py-2 rounded-xl bg-slate-100 text-slate-800 font-bold text-xs hover:bg-brand-orange hover:text-white transition-colors"
               >
                 Close & Return
               </button>

@@ -237,7 +237,7 @@ export default function GalleryPage() {
   const currentFeatured = featuredEvents[activeSlide]
 
   return (
-    <div className="relative min-h-screen bg-brand-navy-darkest text-slate-100 selection:bg-brand-orange selection:text-white">
+    <div className="relative min-h-screen bg-white text-slate-900 selection:bg-brand-orange selection:text-white">
       
       {/* Sticky Appbar */}
       <Navbar onOpenDemoModal={() => setIsDemoModalOpen(true)} />
@@ -247,19 +247,19 @@ export default function GalleryPage() {
         {/* ========================================================
             SECTION 1: FEATURED EVENT KINETIC 3D CAROUSEL
             ======================================================== */}
-        <section className="relative pt-8 pb-12 sm:pt-12 sm:pb-16 bg-gradient-to-b from-brand-navy-darker to-brand-navy-darkest border-b border-brand-navy-border/60 overflow-hidden">
+        <section className="relative pt-8 pb-12 sm:pt-12 sm:pb-16 bg-gradient-to-b from-slate-50 to-white border-b border-slate-200 overflow-hidden">
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             {/* Header Title */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 gap-4">
               <div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-navy-surface border border-brand-orange/30 text-brand-orange text-xs font-semibold mb-2">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-brand-orange/30 text-brand-orange text-xs font-semibold mb-2 shadow-sm">
                   <Camera className="w-3.5 h-3.5" />
                   <span>Official Event Photographic Gallery</span>
                 </div>
-                <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-display">
-                  Moments from Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-400 to-yellow-200">School Events</span>
+                <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight font-display">
+                  Moments from Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-500 to-orange-600">School Events</span>
                 </h1>
               </div>
 
@@ -267,21 +267,21 @@ export default function GalleryPage() {
               <div className="flex items-center gap-2 self-start sm:self-auto">
                 <button
                   onClick={prevSlide}
-                  className="p-2.5 rounded-full bg-brand-navy-surface hover:bg-brand-navy-light text-slate-300 hover:text-white border border-brand-navy-border transition-colors cursor-pointer"
+                  className="p-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 shadow-sm transition-colors cursor-pointer"
                   title="Previous Event"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="p-2.5 rounded-full bg-brand-navy-surface hover:bg-brand-navy-light text-slate-300 hover:text-white border border-brand-navy-border transition-colors cursor-pointer"
+                  className="p-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 shadow-sm transition-colors cursor-pointer"
                   title="Next Event"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                  className="p-2.5 rounded-full bg-brand-navy-surface hover:bg-brand-navy-light text-slate-300 hover:text-white border border-brand-navy-border transition-colors cursor-pointer text-xs"
+                  className="p-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 shadow-sm transition-colors cursor-pointer text-xs"
                   title={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
                 >
                   {isAutoPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
@@ -290,7 +290,7 @@ export default function GalleryPage() {
             </div>
 
             {/* The Cinematic Carousel Card */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-brand-navy-border/80 h-[380px] sm:h-[480px] lg:h-[520px] group">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 h-[380px] sm:h-[480px] lg:h-[520px] group">
               
               <AnimatePresence mode="wait">
                 <motion.div
@@ -309,8 +309,8 @@ export default function GalleryPage() {
                   />
 
                   {/* Gradient overlays */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-darkest via-brand-navy-darkest/60 to-transparent" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-darkest/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-transparent to-transparent" />
 
                   {/* Text & Meta Content Overlay */}
                   <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10 lg:p-12 z-20 max-w-3xl">
@@ -382,7 +382,7 @@ export default function GalleryPage() {
         {/* ========================================================
             SECTION 2: CATEGORY FILTER TABS
             ======================================================== */}
-        <section className="py-5 border-b border-brand-navy-border/60 sticky top-[95px] z-30 bg-brand-navy-darkest/95 backdrop-blur-xl">
+        <section className="py-5 border-b border-slate-200 sticky top-[95px] z-30 bg-white/95 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             
             <div className="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0 scrollbar-none">
@@ -395,7 +395,7 @@ export default function GalleryPage() {
                     className={`px-4 py-2 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
                       isActive
                         ? 'bg-brand-orange text-white shadow-md shadow-brand-orange/25'
-                        : 'bg-brand-navy-surface text-slate-300 hover:text-white hover:bg-brand-navy-light border border-brand-navy-border'
+                        : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200 border border-slate-200'
                     }`}
                   >
                     {cat.name}
@@ -404,7 +404,7 @@ export default function GalleryPage() {
               })}
             </div>
 
-            <span className="text-xs font-mono text-slate-400">
+            <span className="text-xs font-mono text-slate-500">
               Showing {filteredPhotos.length} Event Photographs
             </span>
 
@@ -425,7 +425,7 @@ export default function GalleryPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: index * 0.04 }}
                 onClick={() => setLightboxIndex(index)}
-                className="group relative rounded-3xl overflow-hidden bg-brand-navy-darker border border-brand-navy-border/80 shadow-xl cursor-pointer hover:border-brand-blue/60 transition-all duration-300"
+                className="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md shadow-slate-100 cursor-pointer hover:border-slate-400 transition-all duration-300"
               >
                 {/* Photo Image with Hover Zoom */}
                 <div className="relative h-64 sm:h-72 w-full overflow-hidden">
@@ -437,7 +437,7 @@ export default function GalleryPage() {
                   />
 
                   {/* Gradient shade */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-darkest via-brand-navy-darkest/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
 
                   {/* Top Floating Badge */}
                   <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
@@ -484,18 +484,18 @@ export default function GalleryPage() {
         {/* ========================================================
             SECTION 4: HOST AN EVENT CALLOUT FOR SCHOOLS
             ======================================================== */}
-        <section className="py-16 bg-gradient-to-r from-brand-navy-darker via-brand-navy-surface to-brand-navy-darker border-t border-brand-navy-border/60">
+        <section className="py-16 bg-slate-50 border-t border-slate-200">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/20 text-brand-orange text-xs font-semibold mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-semibold mb-3">
               <Trophy className="w-3.5 h-3.5" />
               <span>Bring Infonex to Your Campus</span>
             </div>
 
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white font-display mb-3">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-display mb-3">
               Want to Host a Robotics Championship or Workshop?
             </h2>
 
-            <p className="text-slate-300 text-xs sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+            <p className="text-slate-600 text-xs sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
               We organize hands-on STEM hackathons, drone arenas, and faculty bootcamps for partner schools across Karnataka and nationwide.
             </p>
 

@@ -102,21 +102,21 @@ export default function KitsShowcase({ onOpenDemoModal }) {
     : kits.filter(k => k.category === activeTab)
 
   return (
-    <section id="kits" className="py-14 sm:py-20 md:py-28 relative bg-brand-navy-darkest circuit-grid z-10">
+    <section id="kits" className="py-14 sm:py-20 md:py-28 relative bg-white z-10">
       <div id="gallery" className="absolute -top-10" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-navy-surface border border-brand-blue/30 text-brand-blue text-xs font-bold uppercase tracking-wider mb-2.5">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-brand-blue text-xs font-bold uppercase tracking-wider mb-2.5 shadow-xs">
               <Bot className="w-3.5 h-3.5" />
               <span>Engineered in Bangalore</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white font-display">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 font-display">
               Proprietary Hardware <span className="text-brand-orange">& Kits</span>
             </h2>
-            <p className="text-slate-300 text-xs sm:text-base mt-2 max-w-xl leading-relaxed">
+            <p className="text-slate-600 text-xs sm:text-base mt-2 max-w-xl leading-relaxed">
               Durable, classroom-tested hardware kits built specifically for student usage with modular plug-and-play electronics.
             </p>
           </div>
@@ -130,7 +130,7 @@ export default function KitsShowcase({ onOpenDemoModal }) {
                 className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs font-semibold transition-all ${
                   activeTab === cat.id
                     ? 'bg-brand-orange text-white shadow-md shadow-brand-orange/30'
-                    : 'bg-brand-navy-surface text-slate-300 hover:text-white hover:bg-brand-navy-light border border-brand-navy-border'
+                    : 'bg-slate-100 text-slate-700 hover:text-slate-950 hover:bg-slate-200 border border-slate-200'
                 }`}
               >
                 {cat.name}
@@ -153,7 +153,7 @@ export default function KitsShowcase({ onOpenDemoModal }) {
               >
                 <ParallaxTiltCard 
                   maxTilt={8}
-                  className="group rounded-2xl sm:rounded-3xl bg-brand-navy-surface/85 border border-brand-navy-border hover:border-brand-orange/60 p-4 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-brand-orange/10 relative overflow-hidden h-full"
+                  className="group rounded-2xl sm:rounded-3xl bg-white border border-slate-200 hover:border-brand-orange/60 p-4 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-slate-200/80 relative overflow-hidden h-full shadow-lg shadow-slate-100"
                 >
                   {/* Header info */}
                   <div>
@@ -161,32 +161,31 @@ export default function KitsShowcase({ onOpenDemoModal }) {
                       <span className="text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-brand-orange/15 text-brand-orange border border-brand-orange/30">
                         {kit.badge}
                       </span>
-                      <span className="text-[11px] sm:text-xs text-slate-400 font-mono">
+                      <span className="text-[11px] sm:text-xs text-slate-500 font-mono">
                         {kit.grades}
                       </span>
                     </div>
 
                     {/* Visual card */}
-                    <div className={`h-28 sm:h-36 rounded-xl sm:rounded-2xl bg-gradient-to-br ${kit.imageBg} border border-brand-navy-border/80 flex flex-col items-center justify-center p-3 relative overflow-hidden mb-4 group-hover:scale-[1.01] transition-transform`}>
-                      <div className="absolute inset-0 opacity-15 circuit-grid pointer-events-none" />
-                      <Bot className="w-12 h-12 sm:w-14 sm:h-14 text-slate-200/80 mb-1.5 group-hover:text-brand-orange transition-colors" />
-                      <div className="text-[10px] sm:text-xs font-semibold text-slate-300 bg-brand-navy-darkest/80 px-2.5 py-0.5 rounded-full border border-slate-700/60">
+                    <div className="h-28 sm:h-36 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-center p-3 relative overflow-hidden mb-4 group-hover:scale-[1.01] transition-transform">
+                      <Bot className="w-12 h-12 sm:w-14 sm:h-14 text-slate-400 mb-1.5 group-hover:text-brand-orange transition-colors" />
+                      <div className="text-[10px] sm:text-xs font-semibold text-slate-700 bg-white px-2.5 py-0.5 rounded-full border border-slate-200 shadow-xs">
                         {kit.coding}
                       </div>
                     </div>
 
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-white font-display mb-1.5 group-hover:text-brand-orange transition-colors">
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 font-display mb-1.5 group-hover:text-brand-orange transition-colors">
                       {kit.title}
                     </h3>
 
-                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
                       {kit.description}
                     </p>
 
                     {/* Specs list */}
                     <div className="space-y-1 mb-5">
                       {kit.specs.map((spec, sidx) => (
-                        <div key={sidx} className="flex items-center gap-2 text-[11px] sm:text-xs text-slate-300">
+                        <div key={sidx} className="flex items-center gap-2 text-[11px] sm:text-xs text-slate-700">
                           <div className="w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0" />
                           <span>{spec}</span>
                         </div>
@@ -195,13 +194,13 @@ export default function KitsShowcase({ onOpenDemoModal }) {
                   </div>
 
                   {/* Footer action */}
-                  <div className="pt-3.5 border-t border-brand-navy-border flex items-center justify-between">
+                  <div className="pt-3.5 border-t border-slate-200 flex items-center justify-between">
                     <div className="text-[11px] text-brand-blue font-semibold">
                       {kit.curriculum}
                     </div>
                     <button
                       onClick={onOpenDemoModal}
-                      className="text-xs font-bold text-white bg-brand-navy-light hover:bg-brand-orange px-3 py-1.5 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer"
+                      className="text-xs font-bold text-slate-800 bg-slate-100 hover:bg-brand-orange hover:text-white px-3 py-1.5 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer border border-slate-200 hover:border-brand-orange"
                     >
                       <span>Request Kit</span>
                       <ArrowRight className="w-3 h-3" />
@@ -214,14 +213,14 @@ export default function KitsShowcase({ onOpenDemoModal }) {
         </motion.div>
 
         {/* Bottom Banner */}
-        <div className="mt-10 sm:mt-14 p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-brand-navy-surface via-brand-navy-light to-brand-navy-surface border border-brand-blue/30 flex flex-col md:flex-row items-center justify-between gap-5">
+        <div className="mt-10 sm:mt-14 p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-slate-50 via-blue-50/40 to-slate-50 border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-5 shadow-sm">
           <div className="flex items-center gap-3.5">
-            <div className="p-3 rounded-xl sm:rounded-2xl bg-brand-orange/20 text-brand-orange shrink-0">
+            <div className="p-3 rounded-xl sm:rounded-2xl bg-brand-orange/15 text-brand-orange shrink-0">
               <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <h4 className="text-base sm:text-lg font-bold text-white font-display">Need Custom Hardware Kits for Your School Curriculum?</h4>
-              <p className="text-xs sm:text-sm text-slate-300 mt-0.5">We custom fabricate and white-label robotics kits for schools, Atal Tinkering Labs, and education franchises.</p>
+              <h4 className="text-base sm:text-lg font-bold text-slate-900 font-display">Need Custom Hardware Kits for Your School Curriculum?</h4>
+              <p className="text-xs sm:text-sm text-slate-600 mt-0.5">We custom fabricate and white-label robotics kits for schools, Atal Tinkering Labs, and education franchises.</p>
             </div>
           </div>
 

@@ -70,30 +70,30 @@ export default function PillarsSection({ onOpenDemoModal }) {
   ]
 
   return (
-    <section id="pillars" className="py-14 sm:py-20 md:py-28 relative bg-brand-navy-darker/90 border-t border-b border-brand-navy-border/60 z-10">
+    <section id="pillars" className="py-14 sm:py-20 md:py-28 relative bg-white border-t border-b border-slate-200 z-10">
       <div id="labs" className="absolute -top-10" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-navy-surface border border-brand-orange/30 text-brand-orange text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
             <Sparkles className="w-3.5 h-3.5" />
             <span>The Infonex Foundation</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 font-display tracking-tight mb-3">
             Three Core Pillars. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-sky-300 to-brand-orange">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-sky-600 to-brand-orange">
               Infinite Possibilities for Learners.
             </span>
           </h2>
 
-          <p className="text-slate-300 text-xs sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-600 text-xs sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-normal">
             Equipping educational institutions with the triad of contemporary tech education, as featured in our Bangalore launch flyer.
           </p>
         </div>
 
-        {/* Pillars Grid with Parallax Tilt Cards */}
+        {/* Pillars Grid with Parallax Tilt Cards on White Theme */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon
@@ -107,12 +107,12 @@ export default function PillarsSection({ onOpenDemoModal }) {
               >
                 <ParallaxTiltCard 
                   maxTilt={8}
-                  className={`group relative rounded-2xl sm:rounded-3xl bg-brand-navy-surface/90 border ${pillar.borderColor} p-5 sm:p-7 md:p-8 flex flex-col justify-between transition-all duration-300 ${pillar.glowColor} h-full`}
+                  className="group relative rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-slate-200/60 p-5 sm:p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:border-slate-300 h-full"
                 >
                   <div>
                     {/* Top Bar with Icon and Tag */}
                     <div className="flex items-center justify-between mb-4 sm:mb-6">
-                      <div className={`p-3 rounded-xl sm:rounded-2xl bg-brand-navy-darkest border border-brand-navy-border shadow-inner ${pillar.accentColor}`}>
+                      <div className={`p-3 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200 shadow-sm ${pillar.accentColor}`}>
                         <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
                       <span className={`text-[11px] sm:text-xs font-bold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border ${pillar.badgeColor}`}>
@@ -120,22 +120,22 @@ export default function PillarsSection({ onOpenDemoModal }) {
                       </span>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white font-display mb-1 sm:mb-2">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 font-display mb-1 sm:mb-2">
                       {pillar.title}
                     </h3>
 
-                    <div className={`text-xs font-semibold ${pillar.accentColor} mb-3 sm:mb-4`}>
+                    <div className={`text-xs font-bold ${pillar.accentColor} mb-3 sm:mb-4`}>
                       {pillar.tagline}
                     </div>
 
-                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
                       {pillar.description}
                     </p>
 
                     {/* Feature Checklist */}
                     <div className="space-y-2 mb-6 sm:mb-8">
                       {pillar.features.map((feat, fidx) => (
-                        <div key={fidx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-200">
+                        <div key={fidx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700 font-medium">
                           <Check className={`w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 shrink-0 ${pillar.accentColor}`} />
                           <span>{feat}</span>
                         </div>
@@ -144,13 +144,13 @@ export default function PillarsSection({ onOpenDemoModal }) {
                   </div>
 
                   {/* Card Footer */}
-                  <div className="pt-4 sm:pt-6 border-t border-brand-navy-border/60 flex items-center justify-between text-xs">
-                    <span className="text-slate-400 font-medium text-[11px] sm:text-xs">
+                  <div className="pt-4 sm:pt-6 border-t border-slate-200 flex items-center justify-between text-xs">
+                    <span className="text-slate-500 font-medium text-[11px] sm:text-xs">
                       {pillar.grades}
                     </span>
                     <button 
                       onClick={onOpenDemoModal}
-                      className={`font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform ${pillar.accentColor} text-xs sm:text-sm`}
+                      className={`font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform ${pillar.accentColor} text-xs sm:text-sm`}
                     >
                       <span>Inquire</span>
                       <ArrowRight className="w-3.5 h-3.5" />

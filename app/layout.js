@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="bg-brand-navy-darkest text-slate-100 antialiased selection:bg-brand-orange selection:text-white min-h-screen flex flex-col">
+      <body className="bg-white text-slate-900 antialiased selection:bg-brand-orange selection:text-white min-h-screen flex flex-col">
         {children}
       </body>
     </html>

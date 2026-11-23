@@ -86,21 +86,21 @@ export default function CurriculumRoadmap() {
   const Icon = current.icon
 
   return (
-    <section id="curriculum" className="py-14 sm:py-20 md:py-28 relative bg-brand-navy-darkest circuit-grid">
+    <section id="curriculum" className="py-14 sm:py-20 md:py-28 relative bg-slate-50 border-t border-b border-slate-200 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-navy-surface border border-brand-blue/30 text-brand-blue text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-brand-blue text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
             <Sparkles className="w-3.5 h-3.5" />
             <span>NEP 2020 Pedagogical Framework</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white font-display mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 font-display mb-3">
             The Infonex Growth Journey: <br />
             <span className="text-brand-orange">Seed</span> to <span className="text-brand-blue">Bloom</span>
           </h2>
-          <p className="text-slate-300 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed">
             A comprehensive, grade-by-grade roadmap designed to take a curious primary student to an inventive AI engineer by high school graduation.
           </p>
         </div>
@@ -115,20 +115,20 @@ export default function CurriculumRoadmap() {
                 onClick={() => setActiveStage(idx)}
                 className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all ${
                   activeStage === idx
-                    ? 'bg-brand-navy-surface border-brand-orange shadow-md shadow-brand-orange/20'
-                    : 'bg-brand-navy-surface/40 border-brand-navy-border hover:border-slate-700'
+                    ? 'bg-white border-brand-orange shadow-md shadow-brand-orange/15 ring-2 ring-brand-orange/20'
+                    : 'bg-white/80 border-slate-200 hover:border-slate-300'
                 }`}
               >
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-300">
+                  <span className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-500 font-bold">
                     {stage.phase}
                   </span>
                   <StageIcon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${stage.color}`} />
                 </div>
-                <div className="text-sm sm:text-base font-bold text-white font-display">
+                <div className="text-sm sm:text-base font-bold text-slate-900 font-display">
                   {stage.title}
                 </div>
-                <div className="text-[11px] sm:text-xs text-slate-300 mt-0.5">
+                <div className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
                   {stage.subtitle}
                 </div>
               </button>
@@ -142,41 +142,41 @@ export default function CurriculumRoadmap() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
-          className="max-w-4xl mx-auto rounded-2xl sm:rounded-3xl bg-brand-navy-surface/90 border border-brand-navy-border/80 p-5 sm:p-7 md:p-10 shadow-2xl relative overflow-hidden"
+          className="max-w-4xl mx-auto rounded-2xl sm:rounded-3xl bg-white border border-slate-200 p-5 sm:p-7 md:p-10 shadow-xl shadow-slate-200/50 relative overflow-hidden"
         >
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 mb-5 pb-5 border-b border-brand-navy-border/60">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 mb-5 pb-5 border-b border-slate-200">
             <div className="flex items-center gap-3 sm:gap-4">
-              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-brand-navy-darkest border border-brand-navy-border text-brand-orange shrink-0">
+              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200 text-brand-orange shrink-0">
                 <Icon className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
               <div>
                 <span className={`text-[10px] sm:text-xs font-bold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border ${current.badge}`}>
                   {current.subtitle} • {current.phase}
                 </span>
-                <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-white font-display mt-1">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mt-1">
                   {current.title}: {current.tagline}
                 </h3>
               </div>
             </div>
           </div>
 
-          <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed mb-6">
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed mb-6">
             {current.description}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5 mb-6">
             {current.topics.map((t, tidx) => (
-              <div key={tidx} className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl bg-brand-navy-darkest/60 border border-brand-navy-border/60">
-                <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 mt-0.5 shrink-0" />
-                <span className="text-xs sm:text-sm text-slate-200 font-medium">{t}</span>
+              <div key={tidx} className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 mt-0.5 shrink-0" />
+                <span className="text-xs sm:text-sm text-slate-800 font-medium">{t}</span>
               </div>
             ))}
           </div>
 
-          <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-brand-orange/15 to-transparent border border-brand-orange/30 flex items-center gap-2.5 sm:gap-3">
+          <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-orange-50 border border-orange-200 flex items-center gap-2.5 sm:gap-3">
             <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-brand-orange shrink-0" />
-            <div className="text-xs sm:text-sm text-slate-200">
-              <span className="font-bold text-white">Graduation Milestone:</span> {current.outcome}
+            <div className="text-xs sm:text-sm text-slate-700">
+              <span className="font-bold text-slate-900">Graduation Milestone:</span> {current.outcome}
             </div>
           </div>
         </motion.div>

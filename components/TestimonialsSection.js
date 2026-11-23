@@ -38,19 +38,19 @@ export default function TestimonialsSection() {
   ]
 
   return (
-    <section className="py-14 sm:py-20 md:py-28 relative bg-brand-navy-darker border-t border-brand-navy-border/60">
+    <section className="py-14 sm:py-20 md:py-28 relative bg-white border-t border-slate-200 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-navy-surface border border-brand-blue/30 text-brand-blue text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-brand-blue text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
             <Quote className="w-3.5 h-3.5" />
             <span>Voices from the Classrooms</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white font-display">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 font-display">
             Trusted by 120+ <span className="text-brand-orange">Visionary Schools</span>
           </h2>
-          <p className="text-slate-300 text-xs sm:text-base mt-2 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-xs sm:text-base mt-2 max-w-2xl mx-auto leading-relaxed">
             Read how educators, principals, and school trustees have transformed student outcomes with Infonex STEM labs.
           </p>
         </div>
@@ -61,32 +61,32 @@ export default function TestimonialsSection() {
             <motion.div
               key={idx}
               whileHover={{ y: -4 }}
-              className="p-5 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl bg-brand-navy-surface border border-brand-navy-border hover:border-brand-blue/50 transition-all flex flex-col justify-between shadow-lg"
+              className="p-5 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 hover:border-brand-blue/50 transition-all flex flex-col justify-between shadow-lg shadow-slate-200/50"
             >
               <div>
                 {/* Rating */}
-                <div className="flex items-center gap-1 mb-3 text-amber-400">
+                <div className="flex items-center gap-1 mb-3 text-amber-500">
                   {[...Array(t.rating)].map((_, i) => (
                     <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400" />
                   ))}
                 </div>
 
-                <p className="text-slate-200 text-xs sm:text-sm md:text-base leading-relaxed mb-5 italic">
+                <p className="text-slate-700 text-xs sm:text-sm md:text-base leading-relaxed mb-5 italic">
                   "{t.quote}"
                 </p>
               </div>
 
-              <div className="pt-3.5 border-t border-brand-navy-border/60">
-                <div className="font-bold text-white text-sm sm:text-base font-display">
+              <div className="pt-3.5 border-t border-slate-200">
+                <div className="font-bold text-slate-900 text-sm sm:text-base font-display">
                   {t.name}
                 </div>
-                <div className="text-xs text-brand-orange font-medium">
+                <div className="text-xs text-brand-orange font-bold">
                   {t.role}
                 </div>
-                <div className="text-[11px] text-slate-400 mt-0.5">
+                <div className="text-[11px] text-slate-500 mt-0.5">
                   {t.city}
                 </div>
-                <div className="mt-2.5 inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+                <div className="mt-2.5 inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
                   <CheckCircle className="w-3 h-3" />
                   <span>{t.impact}</span>
                 </div>
@@ -96,13 +96,13 @@ export default function TestimonialsSection() {
         </div>
 
         {/* School Logo Bar */}
-        <div className="py-6 px-4 sm:px-6 rounded-2xl bg-brand-navy-darkest/70 border border-brand-navy-border/60 text-center">
-          <p className="text-[11px] sm:text-xs uppercase tracking-widest text-slate-400 font-bold mb-4">
+        <div className="py-6 px-4 sm:px-6 rounded-2xl bg-slate-50 border border-slate-200 text-center shadow-xs">
+          <p className="text-[11px] sm:text-xs uppercase tracking-widest text-slate-600 font-bold mb-4">
             Partnering With Progressive Institutions Across Karnataka & South India
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 text-xs sm:text-sm font-semibold text-slate-300">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 text-xs sm:text-sm font-semibold text-slate-800">
             {partnerLogos.map((sch, i) => (
-              <div key={i} className="flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-brand-navy-surface/50 border border-slate-700/50">
+              <div key={i} className="flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-white border border-slate-200 shadow-xs">
                 <School className="w-3.5 h-3.5 text-brand-blue" />
                 <span className="text-xs sm:text-sm">{sch}</span>
               </div>

@@ -56,58 +56,58 @@ export default function FiveLearningZones({ onOpenDemoModal }) {
   ]
 
   return (
-    <section id="zones" className="py-14 sm:py-20 md:py-28 relative bg-brand-navy-darkest overflow-hidden z-10">
+    <section id="zones" className="py-14 sm:py-20 md:py-28 relative bg-white overflow-hidden z-10">
       
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* The Exact Split-Screen Layout from Image */}
-        <div className="rounded-3xl overflow-hidden shadow-2xl border border-brand-navy-border/80 grid grid-cols-1 lg:grid-cols-12">
+        {/* The Exact Split-Screen Layout on White Background */}
+        <div className="rounded-3xl overflow-hidden shadow-xl border border-slate-200 grid grid-cols-1 lg:grid-cols-12 bg-white">
           
           {/* ========================================================
-              LEFT COLUMN: Deep Navy Brand Editorial Block
+              LEFT COLUMN: Editorial Framework Block (White / Light Slate)
               ======================================================== */}
-          <div className="lg:col-span-5 bg-[#0A1931] p-8 sm:p-12 lg:p-14 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-700/50">
+          <div className="lg:col-span-5 bg-slate-50 p-8 sm:p-12 lg:p-14 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-200 text-slate-900">
             <div>
               {/* Eyebrow Numbering */}
               <div className="flex items-center gap-2 mb-6">
                 <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping" />
-                <span className="font-mono text-xs uppercase tracking-widest text-slate-300 font-semibold">
+                <span className="font-mono text-xs uppercase tracking-widest text-brand-orange font-bold">
                   03 — FIVE LEARNING ZONES
                 </span>
               </div>
 
               {/* Serif / Bold Editorial Headline */}
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-6 font-display">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-[1.15] mb-6 font-display">
                 Every grade moves through all five zones
               </h2>
 
               {/* Sanskrit Lore Paragraph */}
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
                 Rooted in Sanskrit, each zone names a way of learning. Children pass through all five every year, from handling a machine to creating a complete system.
               </p>
 
               {/* How vs What Distinction Callout */}
-              <div className="p-4 rounded-2xl bg-brand-navy-surface/80 border border-brand-navy-border/70 space-y-1.5 text-xs sm:text-sm">
-                <div className="text-slate-300">
+              <div className="p-4 rounded-2xl bg-white border border-slate-200 space-y-1.5 text-xs sm:text-sm shadow-xs">
+                <div className="text-slate-700">
                   Zones describe <span className="text-brand-orange font-bold uppercase tracking-wide">how</span> children learn.
                 </div>
-                <div className="text-slate-300">
+                <div className="text-slate-700">
                   Pillars describe <span className="text-brand-blue font-bold uppercase tracking-wide">what</span> they learn.
                 </div>
               </div>
             </div>
 
             {/* Bottom Methodology Motto */}
-            <div className="mt-10 pt-6 border-t border-slate-700/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="mt-10 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block mb-0.5">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 block mb-0.5">
                   Methodology Framework
                 </span>
-                <span className="text-xs font-semibold text-white">
+                <span className="text-xs font-bold text-slate-900">
                   From Curiosity to Creation • Infonex Marga
                 </span>
               </div>
@@ -123,9 +123,9 @@ export default function FiveLearningZones({ onOpenDemoModal }) {
           </div>
 
           {/* ========================================================
-              RIGHT COLUMN: Ivory / High-Contrast Structured Zones Table
+              RIGHT COLUMN: Structured Zones Table on Crisp White
               ======================================================== */}
-          <div className="lg:col-span-7 bg-[#FAF8F5] text-slate-900 p-8 sm:p-12 lg:p-14 flex flex-col justify-between">
+          <div className="lg:col-span-7 bg-white text-slate-900 p-8 sm:p-12 lg:p-14 flex flex-col justify-between">
             
             <div>
               {/* Top Section Header with Rule */}

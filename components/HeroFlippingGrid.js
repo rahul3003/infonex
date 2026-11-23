@@ -171,7 +171,7 @@ export default function HeroFlippingGrid() {
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
-              className="relative w-full h-full min-h-[110px] sm:min-h-[140px] lg:min-h-[160px] border border-brand-navy-border/30 transition-all duration-300"
+              className="relative w-full h-full min-h-[110px] sm:min-h-[140px] lg:min-h-[160px] border border-slate-200/60 transition-all duration-300"
               style={{
                 transformStyle: 'preserve-3d'
               }}
@@ -186,22 +186,22 @@ export default function HeroFlippingGrid() {
                 }}
               >
                 {/* ========================================================
-                    FRONT FACE: The Original Dark Navy Grid Box
+                    FRONT FACE: Clean White Technical Blueprint Grid Box
                     ======================================================== */}
                 <div
-                  className="absolute inset-0 bg-[#050D1A]/70 hover:bg-[#0A1931]/80 transition-colors flex items-center justify-center p-2"
+                  className="absolute inset-0 bg-white/70 hover:bg-sky-50/60 transition-colors flex items-center justify-center p-2 border border-slate-200/60"
                   style={{
                     backfaceVisibility: 'hidden',
                     WebkitBackfaceVisibility: 'hidden'
                   }}
                 >
                   {/* Subtle technical corner crosshair matching blueprint grid */}
-                  <div className="absolute top-1 left-1 w-1.5 h-1.5 border-t border-l border-brand-blue/30 pointer-events-none" />
-                  <div className="absolute bottom-1 right-1 w-1.5 h-1.5 border-b border-r border-brand-blue/30 pointer-events-none" />
+                  <div className="absolute top-1 left-1 w-1.5 h-1.5 border-t border-l border-brand-blue/40 pointer-events-none" />
+                  <div className="absolute bottom-1 right-1 w-1.5 h-1.5 border-b border-r border-brand-blue/40 pointer-events-none" />
 
                   {/* Tiny subtle center node (shows up on every 3rd cell) */}
                   {index % 3 === 0 && (
-                    <span className="w-1 h-1 rounded-full bg-brand-blue/20" />
+                    <span className="w-1 h-1 rounded-full bg-brand-blue/30" />
                   )}
                 </div>
 
@@ -209,13 +209,13 @@ export default function HeroFlippingGrid() {
                     BACK FACE (180deg): Flipped AI, ML & Robotics Image
                     ======================================================== */}
                 <div
-                  className="absolute inset-0 rounded-lg overflow-hidden border shadow-2xl p-2.5 flex flex-col justify-between"
+                  className="absolute inset-0 rounded-lg overflow-hidden border shadow-xl p-2.5 flex flex-col justify-between"
                   style={{
                     transform: 'rotateY(180deg)',
                     backfaceVisibility: 'hidden',
                     WebkitBackfaceVisibility: 'hidden',
-                    borderColor: `${item.color}80`,
-                    boxShadow: `0 0 25px ${item.color}40`,
+                    borderColor: item.color,
+                    boxShadow: `0 10px 25px -5px ${item.color}40`,
                     backgroundColor: '#071326'
                   }}
                 >
@@ -262,9 +262,9 @@ export default function HeroFlippingGrid() {
         })}
       </div>
 
-      {/* Radial fade mask to ensure foreground headline text remains 100% readable */}
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-darkest via-brand-navy-darkest/65 to-brand-navy-darkest/50 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#050D1A_80%)] pointer-events-none" />
+      {/* Radial fade mask to ensure foreground headline text remains 100% readable on clean white */}
+      <div className="absolute inset-0 bg-gradient-to-t from-white via-white/85 to-white/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#FFFFFF_80%)] pointer-events-none" />
     </div>
   )
 }
